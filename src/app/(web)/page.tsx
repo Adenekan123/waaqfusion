@@ -21,8 +21,8 @@ const Home = () => {
       <Container styles="py-12 md:py-24">
         <Stack gap="gap-12 md:gap-28">
           <div className="basis-6/12 relative">
-            <div className="flex items-center justify-center play w-24 h-24 text-white rounded-full bg-gradient-to-r from-red-500 to-orange-500 absolute  top-2/4 -translate-y-2/4 md:-right-10 right-2/4 translate-x-2/4 md:translate-x-0   z-10">
-               <FaPlay size={30}/>
+            <div className="flex items-center justify-center play w-20 h-20 md:w-24 md:h-24 text-white rounded-full bg-gradient-to-r from-red-500 to-orange-500 absolute  top-2/4 -translate-y-2/4 md:-right-10 right-2/4 translate-x-2/4 md:translate-x-0   z-10">
+               <FaPlay size={24}/>
             </div>
             <FrameImage image="/images/kids-with-tablet.jpg" />
           </div>
