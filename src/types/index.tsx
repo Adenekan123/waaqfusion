@@ -9,3 +9,17 @@ export interface IContainer{
     children:ReactNode;
     styles?:string;
 }
+export interface IFrameImage{
+    image:string;
+    styles?:string;
+}
+export interface IStack{
+    direction?:string;
+    gap?:string;
+    children:ReactNode;
+    styles?:string;
+}
+export interface IHeading{
+    title:string;
+    styles?:string;
+}
