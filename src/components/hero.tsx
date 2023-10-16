@@ -14,7 +14,7 @@ export const Hero = () => {
             Inspiring Creativity, Engineering the Future.
           </h1>
           <p className="text-md md:text-xl text-slate-50 mt-4 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-          <CustomButton title="learn more" styles="uppercase font-bold" />
+          <CustomButton title="explore all products" styles="uppercase font-bold" />
         </div>
         <div className="content basis-full xl:basis-2/4 mt-12 xl:mt-0">
           <img

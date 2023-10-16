@@ -22,4 +22,9 @@ export interface IStack{
 export interface IHeading{
     title:string;
     styles?:string;
+    type?:number;
+}
+export interface IHeroWall{
+    children:ReactNode;
+    styles?:string;
 }

@@ -4,3 +4,4 @@ export * from './custom-button';
 export * from './stack';
 export * from './heading';
 export * from './body';
+export * from './hero-wall';
