@@ -7,6 +7,7 @@ import {
   Heading,
   Hero,
   HeroWall,
+  LearnBundle,
   Stack,
 } from "@/components";
 import Image from "next/image";
@@ -21,6 +22,7 @@ const Home = () => {
     <>
       <Header />
       <Hero />
+
       <Container styles="py-12 md:py-24">
         <Stack gap="gap-12 md:gap-28">
           <div className="basis-6/12 relative">
@@ -80,6 +82,7 @@ const Home = () => {
           </div>
         </Stack>
       </Container>
+
       <HeroWall>
         <Container styles="pt-12 md:pt-20 md:mt-44 pb-12 md:pb-0">
           <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-8 relative md:-top-44">
@@ -259,6 +262,7 @@ const Home = () => {
           </div>
         </Container>
       </HeroWall>
+
       <div className="ceo-video">
         <Container styles="py-20 md:py-24 ">
           <div className="md:flex items-center">
@@ -279,6 +283,9 @@ const Home = () => {
           </div>
         </Container>
       </div>
+     
+     <LearnBundle/>
+      
     </>
   );
 };
