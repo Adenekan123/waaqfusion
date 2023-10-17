@@ -1,4 +1,5 @@
 import {
+  BestSellers,
   Body,
   Container,
   CustomButton,
@@ -285,6 +286,8 @@ const Home = () => {
       </div>
      
      <LearnBundle/>
+
+     <BestSellers/>
       
     </>
   );

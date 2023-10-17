@@ -7,7 +7,7 @@ export const Card = ({ image,heading, title }: { image: string; heading:string; 
       <img
         src={image}
         alt="robotics"
-        className=" max-h-48 h-48 w-full object-cover"
+        className="h-64 md:h-48 w-full object-cover"
       />
       <div className="p-6 bg-white">
         <Heading type={4} title={heading} />

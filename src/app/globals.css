@@ -37,3 +37,24 @@ html{
 background-size: 62px 62px, 62px 62px, 31px 31px, 31px 31px;
 background-color: #fffcfa;
 }
+
+.splide__arrow{
+  background-color: red!important;
+  width:4rem!important;
+  height: 4rem!important;
+  right: -24px!important;
+}
+.splide__arrow svg{
+  fill: white!important;
+}
+
+.splide__arrow--prev {
+  display: none!important;
+}
+
+@media(max-width:800px) {
+  .splide__arrow{
+
+    right: -0px!important;
+  }
+}
