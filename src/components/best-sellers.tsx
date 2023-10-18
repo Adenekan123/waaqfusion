@@ -12,7 +12,8 @@ export const BestSellers = () => {
       <Splide
         aria-label="My Favorite Images"
         options={{
-          rewind: true,
+          rewind: false,
+          type:'loop',
           gap: "1rem",
           perPage: 4,
           perMove: 1,
