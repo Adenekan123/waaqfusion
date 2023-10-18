@@ -1,7 +1,6 @@
 "use client";
 
 import { Body, Container, CustomButton, Heading } from "./ui";
-import { useRef, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import "@splidejs/react-splide/css";

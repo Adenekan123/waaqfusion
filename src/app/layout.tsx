@@ -1,5 +1,6 @@
+
+import { ClientLayout } from './clientLayout';
 import './globals.css';
-import Script from 'next/script'
 
 
 
@@ -15,8 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-Nunito">{children}</body>
-      <Script src="//code.tidio.co/3sz52z4vp7yinaq3bm66lle776cl9rkw.js" async></Script>
+      <body className="font-Nunito">{<ClientLayout>{children}</ClientLayout>}</body>
     </html>
   )
 }
