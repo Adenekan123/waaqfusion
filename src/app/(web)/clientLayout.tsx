@@ -2,7 +2,6 @@
 
 import { ReactNode, useEffect } from "react";
 const ClientLayout = ({ children }: { children: ReactNode }) => {
-    
   useEffect(() => {
     if ((window as any).tidioChatApi) {
       (window as any).tidioChatApi.on("ready", () =>
