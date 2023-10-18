@@ -7,6 +7,17 @@ import { BsFillTelephoneFill, BsFillChatSquareDotsFill } from "react-icons/bs";
 
 export const Contacts = () => {
   const [contact, setContact] = useState("line1");
+
+  const handleOpenChat = () => {
+    if ((window as any).tidioChatApi) {
+      (window as any).tidioChatApi.show();
+      (window as any).tidioChatApi.open();
+    }
+  };
+
+  const handlePhoneCall = () =>{
+    window.open(`tel://${contact == 'line1'? process.env.NEXT_PUBLIC_LINE1 : process.env.NEXT_PUBLIC_LINE2}`, '_self');
+  }
   return (
     <HeroWall
       color="bg-slate-100"
@@ -45,6 +56,8 @@ export const Contacts = () => {
                       <CustomButton
                         title="Chat Now"
                         styles="font-bold shadow-xl"
+                        whenClicked={handleOpenChat}
+                        
                       />
                     </div>
                   </Stack>
@@ -96,6 +109,7 @@ export const Contacts = () => {
                         title={`Call Now`}
                         styles="font-bold shadow-xl"
                         gradient="from-green-500 to-green-500"
+                        whenClicked={handlePhoneCall}
                       />
                     </div>
                   </Stack>
@@ -104,7 +118,11 @@ export const Contacts = () => {
             </div>
           </div>{" "}
           <div className=" absolute right-0 bottom-0 hidden xl:block">
-            <img src="/images/robot.png" alt="robot" className="h-full scale-150" />
+            <img
+              src="/images/robot.png"
+              alt="robot"
+              className="h-full scale-150"
+            />
           </div>
         </Stack>
       </Container>

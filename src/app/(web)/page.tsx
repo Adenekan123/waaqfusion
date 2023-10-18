@@ -270,7 +270,7 @@ const Home = () => {
       </HeroWall>
 
       <div className="ceo-video">
-        <Container styles="py-20 md:py-24 ">
+        <Container styles="py-12 md:py-24 ">
           <div className="md:flex items-center">
             <div className="basis-7/12 text-center md:text-left">
               <Stack gap="gap-4" direction="flex-col">

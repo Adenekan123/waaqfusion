@@ -4,6 +4,7 @@ export interface ICustomButton{
     title:ReactNode;
     styles?:string;
     gradient?:string;
+    whenClicked?:()=>void
 }
 
 export interface IContainer{
