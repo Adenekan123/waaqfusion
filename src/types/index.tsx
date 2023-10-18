@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 import {IconType} from 'react-icons'
 export interface ICustomButton{
     title:ReactNode;
-    styles?:string
+    styles?:string;
+    gradient?:string;
 }
 
 export interface IContainer{
@@ -27,4 +28,7 @@ export interface IHeading{
 export interface IHeroWall{
     children:ReactNode;
     styles?:string;
+    color?:string;
+    gradient?:string;
+
 }

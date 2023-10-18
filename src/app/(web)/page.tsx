@@ -1,6 +1,7 @@
 import {
   BestSellers,
   Body,
+  Contacts,
   Container,
   CustomButton,
   FrameImage,
@@ -104,6 +105,7 @@ const Home = () => {
                   <CustomButton
                     title="learn more"
                     styles="shadow-lg uppercase"
+                    gradient="from-green-500 to-green-500"
                   />
                 </div>
               </Stack>
@@ -125,6 +127,7 @@ const Home = () => {
                   <CustomButton
                     title="learn more"
                     styles="shadow-lg uppercase"
+                    gradient="from-amber-500 to-amber-600"
                   />
                 </div>
               </Stack>
@@ -146,6 +149,7 @@ const Home = () => {
                   <CustomButton
                     title="learn more"
                     styles="shadow-lg uppercase"
+                    gradient="from-violet-500 to-violet-700"
                   />
                 </div>
               </Stack>
@@ -171,6 +175,7 @@ const Home = () => {
                   <CustomButton
                     title="learn more"
                     styles="shadow-lg uppercase"
+                    gradient="from-blue-500 to-blue-600"
                   />
                 </div>
               </Stack>
@@ -288,6 +293,8 @@ const Home = () => {
      <LearnBundle/>
 
      <BestSellers/>
+
+     <Contacts/>
       
     </>
   );

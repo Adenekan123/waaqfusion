@@ -1,4 +1,6 @@
-import './globals.css'
+import './globals.css';
+import Script from 'next/script'
+
 
 
 export const metadata = {
@@ -14,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-Nunito">{children}</body>
+      <script src="//code.tidio.co/3sz52z4vp7yinaq3bm66lle776cl9rkw.js" async></script>
     </html>
   )
 }
