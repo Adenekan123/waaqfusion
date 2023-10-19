@@ -31,6 +31,7 @@ body {
 
 html{
   font-size: 14px;
+  overflow: visible!important;
 }
 
 .ceo-video{
@@ -58,4 +59,8 @@ background-color: #fffcfa;
 
     right: -0px!important;
   }
+}
+
+.awesome-iframe .frame-content #button.chat-closed{
+  display: none!important;
 }

@@ -10,8 +10,9 @@ export const Contacts = () => {
 
   const handleOpenChat = () => {
     if ((window as any).tidioChatApi) {
-      (window as any).tidioChatApi.show();
       (window as any).tidioChatApi.open();
+
+
     }
   };
 

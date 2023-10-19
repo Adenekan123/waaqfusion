@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
-import ClientLayout from "./clientLayout";
+"use client";
+import React, { ReactNode, useEffect } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  return <ClientLayout>{children}</ClientLayout>;
+   
+  return <>{children}</>;
 };
 
 export default Layout;
