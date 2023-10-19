@@ -104,7 +104,7 @@ const Home = () => {
                 <div className="text-center md:absolute bottom-0 left-0 w-full">
                   <CustomButton
                     title="learn more"
-                    styles="shadow-lg uppercase"
+                    styles="shadow-lg capitalize font-bold"
                     gradient="from-green-500 to-green-500"
                   />
                 </div>
@@ -126,7 +126,7 @@ const Home = () => {
                 <div className="text-center md:absolute bottom-0 left-0 w-full">
                   <CustomButton
                     title="learn more"
-                    styles="shadow-lg uppercase"
+                    styles="shadow-lg capitalize font-bold"
                     gradient="from-amber-500 to-amber-600"
                   />
                 </div>
@@ -148,7 +148,7 @@ const Home = () => {
                 <div className="text-center md:absolute bottom-0 left-0 w-full">
                   <CustomButton
                     title="learn more"
-                    styles="shadow-lg uppercase"
+                    styles="shadow-lg capitalize font-bold"
                     gradient="from-violet-500 to-violet-700"
                   />
                 </div>
@@ -174,7 +174,7 @@ const Home = () => {
                 <div className="text-center md:absolute bottom-0 left-0 w-full">
                   <CustomButton
                     title="learn more"
-                    styles="shadow-lg uppercase"
+                    styles="shadow-lg capitalize font-bold"
                     gradient="from-blue-500 to-blue-600"
                   />
                 </div>
