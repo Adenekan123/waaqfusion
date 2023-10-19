@@ -274,28 +274,49 @@ const Home = () => {
           <div className="md:flex items-center">
             <div className="basis-7/12 text-center md:text-left">
               <Stack gap="gap-4" direction="flex-col">
-                <Heading type={1} title="Why?" styles="text-orange-500"/>
+                <Heading type={1} title="Why?" styles="text-orange-500" />
                 <Heading type={1} title="What?" styles="text-violet-500" />
                 <Heading type={1} title="How?" styles="text-green-500" />
               </Stack>
-              <p className="text-md md:text-xl mt-4 mb-12">Hear about our Approach from the founders themselves...</p>
+              <p className="text-md md:text-xl mt-4 mb-12">
+                Hear about our Approach from the founders themselves...
+              </p>
             </div>
             <div className="basis-5/12 relative">
               <FrameImage image="/images/why-what-how-desktop.webp" />
               <div className="flex items-center justify-center play w-20 h-20 md:w-24 md:h-24 text-white rounded-full bg-gradient-to-r from-red-500 to-orange-500 absolute  top-2/4 -translate-y-2/4 md:-left-10 left-2/4 -translate-x-2/4 md:translate-x-0 z-10">
-              <FaPlay size={24} />
-            </div>
+                <FaPlay size={24} />
+              </div>
             </div>
           </div>
         </Container>
       </div>
-     
-     <LearnBundle/>
 
-     <BestSellers/>
+      <LearnBundle />
 
-     <Contacts/>
-      
+      <BestSellers />
+
+      <section className="bg-[url('/images/female-teacher-helping-kids-in-robotics-lab.jpg')] bg-cover bg-center text-center md:text-left py-24 md:py-52 relative">
+        <div className="overlay bg-gradient-to-r from-violet-800/70 to-violet-600/40 absolute top-0 left-0 w-full h-full"></div>
+        <Container>
+          <Stack direction="flex-col" gap="gap-8" styles="md:w-5/12">
+            <Heading
+              title="Creating Tomorrow's Tech Leaders through Robotics"
+              styles="text-white"
+            />
+            <Body title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo." styles="text-white " />
+            <div>
+              <CustomButton
+                title="discover more"
+                styles="font-bold uppercase"
+                gradient="from-violet-500 to-violet-600"
+              />
+            </div>
+          </Stack>
+        </Container>
+      </section>
+
+      <Contacts />
     </>
   );
 };

@@ -16,7 +16,7 @@ export const Heading = ({ title, styles, type }: IHeading) => {
     );
   if (type === 4)
     return (
-      <h2 className={`text-lg md:text-xl font-bold ${styles}`}>{title}</h2>
+      <h2 className={`text-md md:text-xl font-bold ${styles}`}>{title}</h2>
     );
 
   return (
