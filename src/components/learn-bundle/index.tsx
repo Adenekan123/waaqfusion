@@ -10,8 +10,6 @@ export const LearnBundle = () => {
     <div className={`${tab === "diy" ? "bg-green-500" : "bg-violet-500"} py-12 md:py-24`}>
       <Container>
         <Stack direction="flex-col" gap="gap-12"> 
-
-
         <Heading
           title="How Would Your Child Prefer to Learn?"
           styles="text-white text-center"
