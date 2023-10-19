@@ -4,6 +4,7 @@ import {
   Contacts,
   Container,
   CustomButton,
+  Footer,
   FrameImage,
   Header,
   Heading,
@@ -297,7 +298,7 @@ const Home = () => {
       <BestSellers />
 
       <section className="bg-[url('/images/female-teacher-helping-kids-in-robotics-lab.jpg')] bg-cover bg-center text-center md:text-left py-24 md:py-52 relative">
-        <div className="overlay bg-gradient-to-r from-violet-800/70 to-violet-600/40 absolute top-0 left-0 w-full h-full"></div>
+        <div className="overlay bg-gradient-to-r from-orange-800/70 to-orange-600/40 absolute top-0 left-0 w-full h-full"></div>
         <Container>
           <Stack direction="flex-col" gap="gap-8" styles="md:w-5/12">
             <Heading
@@ -309,7 +310,6 @@ const Home = () => {
               <CustomButton
                 title="discover more"
                 styles="font-bold uppercase"
-                gradient="from-violet-500 to-violet-600"
               />
             </div>
           </Stack>
@@ -317,6 +317,8 @@ const Home = () => {
       </section>
 
       <Contacts />
+
+      <Footer/>
     </>
   );
 };
