@@ -1,5 +1,5 @@
 import React from "react";
-import { Body, Container, Heading, HeroWall, Stack } from "./ui";
+import { Body, Container, Heading, HeroWall, Stack } from "../../ui";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebook } from "react-icons/fa6";

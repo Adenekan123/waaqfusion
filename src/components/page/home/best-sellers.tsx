@@ -1,6 +1,6 @@
 "use client";
 
-import { Body, Container, CustomButton, Heading } from "./ui";
+import { Body, Container, CustomButton, Heading } from "../../ui";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import "@splidejs/react-splide/css";

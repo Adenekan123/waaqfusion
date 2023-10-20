@@ -1,5 +1,5 @@
 import React from "react";
-import { Body, Heading } from "../ui";
+import { Body, Heading } from "../../../ui";
 
 export const Card = ({ image,heading, title }: { image: string; heading:string; title: string }) => {
   return (

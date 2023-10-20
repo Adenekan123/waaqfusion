@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, FrameImage, Heading, Stack } from './ui'
+import { Container, FrameImage, Heading, Stack } from '../../ui'
 import { FaPlay } from 'react-icons/fa6'
 
 export const CeoVideo = () => {

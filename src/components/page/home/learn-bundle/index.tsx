@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-import { Container, Heading, Stack } from "../ui";
+import { Container, Heading, Stack } from "../../../ui";
 import { DIY } from "./diy";
 import { Online } from "./online";
 

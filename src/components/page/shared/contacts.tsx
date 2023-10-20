@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Body, Container, CustomButton, Heading, HeroWall, Stack } from "./ui";
+import { Body, Container, CustomButton, Heading, HeroWall, Stack } from "../../ui";
 
 import { BsFillTelephoneFill, BsFillChatSquareDotsFill } from "react-icons/bs";
 

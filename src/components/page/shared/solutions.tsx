@@ -1,5 +1,5 @@
 import React from 'react'
-import { Body, Container, CustomButton, Heading, HeroWall, Stack } from './ui'
+import { Body, Container, CustomButton, Heading, HeroWall, Stack } from '../../ui'
 import { FaSchool } from 'react-icons/fa6'
 import { ImUsers } from 'react-icons/im'
 import { RiHomeOfficeFill } from 'react-icons/ri'

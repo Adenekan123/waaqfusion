@@ -33,3 +33,7 @@ export interface IHeroWall{
     gradient?:string;
 
 }
+export interface IHeroSub{
+    page:string;
+
+}

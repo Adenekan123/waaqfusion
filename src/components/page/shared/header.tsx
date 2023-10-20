@@ -6,9 +6,9 @@ import React from "react";
 import { Search } from "./search";
 import { FaCartShopping } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
-import { CustomButton } from "./ui/custom-button";
+import { CustomButton } from "../../ui/custom-button";
 import Image from "next/image";
-import { Container } from "./ui";
+import { Container } from "../../ui";
 
 export const Header = () => {
   return (
