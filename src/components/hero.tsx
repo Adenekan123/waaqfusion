@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { Container } from "./ui";
 import { CustomButton } from "./ui/custom-button";

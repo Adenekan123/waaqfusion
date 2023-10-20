@@ -17,7 +17,7 @@ export const Header = () => {
         <Container>
           <div className="flex justify-between items-center">
             <nav className="flex items-center gap-16">
-              <Link href={"#"} className="logo text-3xl">
+              <Link href={"/"} className="logo text-3xl">
                 <Image
                   src={"/images/logo.png"}
                   alt="logo"
@@ -27,9 +27,10 @@ export const Header = () => {
                 />
               </Link>
               <div className="ml-8 flex gap-8">
-                <Link href={"#"}>Home</Link>
-                <Link href={"#"}>Shop</Link>
-                <Link href={"#"}>Solutions</Link>
+                <Link href={"/"}>Home</Link>
+                <Link href={"/about-us"}>About</Link>
+                <Link href={"/shop"}>Shop</Link>
+                <Link href={"/solutions"}>Solutions</Link>
               </div>
             </nav>
             <nav className="flex items-center gap-8">
