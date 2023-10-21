@@ -1,7 +1,11 @@
 import {
+  Beginnners,
+  Contacts,
   Container,
+  Educational,
   Heading,
   HeroSub,
+  MostLoved,
   ProductCarousel,
   Stack,
 } from "@/components";
@@ -38,27 +42,14 @@ const ShopPage = () => {
           </div>
 
           <Stack direction="flex-col" gap="gap-16">
-          <section className="most-loved">
-            <Stack direction="flex-col" gap="gap-8">
-              <Heading type={2} title="Most Loved Kits"/>
-              <ProductCarousel products={most_loved}/>
-            </Stack>
-          </section>
-          <section className="beginners">
-            <Stack direction="flex-col" gap="gap-8">
-              <Heading type={2} title="Perfect for Beginnners"/>
-              <ProductCarousel products={most_loved}/>
-            </Stack>
-          </section>
-          <section className="education">
-            <Stack direction="flex-col" gap="gap-8">
-              <Heading type={2} title="Educational Kits (Perfect for Gifting)"/>
-              <ProductCarousel products={most_loved}/>
-            </Stack>
-          </section>
+            <MostLoved />
+            <Beginnners />
+            <Educational />
           </Stack>
         </Stack>
       </Container>
+      <Contacts/>
+
     </>
   );
 };

@@ -26,8 +26,8 @@ export interface IHeading {
   styles?: string;
   type?: number;
 }
-export interface IBody extends IHeading{
-    hasEntity?:boolean
+export interface IBody extends IHeading {
+  hasEntity?: boolean;
 }
 export interface IHeroWall {
   children: ReactNode;
@@ -54,4 +54,14 @@ export interface IProductCard {
   name: string;
   ratings: IProductRating;
   price: IProductPrice;
+}
+
+export interface INav {
+  title: string;
+  url: string;
+}
+
+export interface INavigation extends INav {
+  list?: INav[];
+  close?:()=>void
 }
