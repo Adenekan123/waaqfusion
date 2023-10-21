@@ -26,7 +26,7 @@ export const Navigation = ({ title, url, list,close }: INavigation) => {
       </Link>
       <Stack
         direction="flex-col"
-        gap="gap-6"
+        gap="gap-4"
         styles={`pl-3 ${
           state ? "max-h-96" : "max-h-0"
         } overflow-hidden transition-all duration-500 ease-in-out text-slate-500`}

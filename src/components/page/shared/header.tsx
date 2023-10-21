@@ -32,7 +32,7 @@ const MobileMenu = () => {
       <div className={`menu absolute top-20 left-0 w-full  ${state? 'max-h-[700px]' : 'max-h-0'} overflow-hidden transition-all duration-150 ease-linear`}>
         <Stack
           direction="flex-col"
-          gap="gap-6"
+          gap="gap-4"
           styles="bg-orange-50 px-6 py-4 text-lg font-semibold rounded-xl transition-all w-[93%] mx-auto capitalize shadow-xl border-orange-500"
         >
           {navigations.map((navigation) => (
