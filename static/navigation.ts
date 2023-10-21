@@ -14,7 +14,7 @@ export const navigations:INavigation[] = [
   },
   {
     title: "solutions",
-    url: "/#",
+    url: "#",
     list: [
       { title: "schools", url: "#" },
       { title: "partners", url: "#" },
