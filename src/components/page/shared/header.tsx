@@ -35,8 +35,8 @@ const MobileMenu = () => {
           gap="gap-4"
           styles="bg-orange-50 px-6 py-4 text-lg font-semibold rounded-xl transition-all w-[93%] mx-auto capitalize shadow-xl border-orange-500"
         >
-          {navigations.map((navigation) => (
-            <Navigation key={nanoid(4)} {...navigation} close={()=>setState(false)} />
+          {navigations.map((navigation,i) => (
+            <Navigation key={navigation.url+i+'url'} {...navigation} close={()=>setState(false)} />
           ))}
         </Stack>
       </div>
