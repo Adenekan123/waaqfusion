@@ -20,6 +20,7 @@
 
 body {
   background-color: #fffcfa;
+  box-sizing: border-box;
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -61,6 +62,11 @@ background-color: #fffcfa;
   }
 }
 
-.awesome-iframe .frame-content #button.chat-closed{
-  display: none!important;
+/* .splide__slide {
+  min-height: max-content;
+
 }
+.splide__slide > .card{
+  height: 100%;
+  max-height: max-content;
+} */
