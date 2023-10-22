@@ -4,7 +4,6 @@ import { Heading } from "./heading";
 import { Body } from "./body";
 import { CustomButton } from "./custom-button";
 import {AiFillStar} from 'react-icons/ai'
-import { Stack } from "./stack";
 
 export const ProductCard = ({image,name,tag,price,ratings}:IProductCard) => {
     const {rating,total_reviews} = ratings;
@@ -30,8 +29,8 @@ export const ProductCard = ({image,name,tag,price,ratings}:IProductCard) => {
         </div>
 
         <div className="flex gap-3 items-center leading-none">
-            <Body title={`&#8377;${curr} /-`} styles="font-bold" hasEntity/>
-            <Body title={`&#8377;${prev} /`} type={0.5} hasEntity styles="text-slate-700 relative before:absolute before:top-2/4 before:-translate-y-3/4 before:block before:w-full before:h-px before:bg-slate-700 "/>
+            <Body title={`&#8377;${curr.toLocaleString('en')} /-`} styles="font-bold" hasEntity/>
+            <Body title={`&#8377;${prev.toLocaleString('en')} /`} type={0.5} hasEntity styles="text-slate-700 relative before:absolute before:top-2/4 before:-translate-y-3/4 before:block before:w-full before:h-px before:bg-slate-700 "/>
             <Body title={`${discount}% off`} type={0.5} styles="text-red-500"/>
         </div>
         <CustomButton title="Enroll Now" styles="w-full font-bold shadow-lg" />
