@@ -37,6 +37,8 @@ export interface IHeroWall {
 }
 export interface IHeroSub {
   page: string;
+  color?: string;
+  gradient?: string;
 }
 export interface IProductPrice {
   curr: number;

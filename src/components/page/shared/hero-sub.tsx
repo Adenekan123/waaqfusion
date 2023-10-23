@@ -4,9 +4,9 @@ import Link from "next/link";
 import React from "react";
 import { BsPauseFill } from "react-icons/bs";
 
-export const HeroSub = ({page}:IHeroSub) => {
+export const HeroSub = ({page,color,gradient}:IHeroSub) => {
   return (
-    <HeroWall>
+    <HeroWall color={color} gradient={gradient}>
       <Container styles="h-full relative pt-48 pb-20 md:pb-32">
         <div className="content text-center">
           <h1 className=" text-5xl md:text-6xl xl:text-7xl leading-tight  font-extrabold text-white">

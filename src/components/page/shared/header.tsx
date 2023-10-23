@@ -100,6 +100,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -110,6 +111,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100  px-6 py-3"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -120,6 +122,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -152,8 +155,9 @@ const DesktopMenu = () => {
                   } transition-transform `}
                 >
                   <Link
-                    href={"/shop"}
+                    href={"/solutions/schools"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -164,6 +168,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -174,6 +179,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -184,6 +190,7 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
+                    onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
                     <HiOutlineExternalLink
                       size={18}
