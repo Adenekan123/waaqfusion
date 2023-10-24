@@ -24,7 +24,7 @@ export const SchoolIntro = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="card relative shadow-xl bg-white px-4 py-6 mt-4 rounded-lg">
-                <div className="absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
+                <div className="mx-auto mb-5 md:absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
                   01
                 </div>
                 <Stack
@@ -38,7 +38,7 @@ export const SchoolIntro = () => {
                 </Stack>
               </div>
               <div className="card relative shadow-xl bg-white px-4 py-6 mt-4 rounded-lg">
-                <div className="absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
+                <div className="mx-auto mb-5 md:absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
                   02
                 </div>
                 <Stack
@@ -52,7 +52,7 @@ export const SchoolIntro = () => {
                 </Stack>
               </div>
               <div className="card relative shadow-xl bg-white px-4 py-6 mt-4 rounded-lg">
-                <div className="absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
+                <div className="mx-auto mb-5 md:absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
                   03
                 </div>
                 <Stack
@@ -66,7 +66,7 @@ export const SchoolIntro = () => {
                 </Stack>
               </div>
               <div className="card relative shadow-xl bg-white px-4 py-6 mt-4 rounded-lg">
-                <div className="absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
+                <div className="mx-auto mb-5 md:absolute -top-4 -left-4 flex justify-center items-center border-8 bg-green-500 border-white font-bold text-white text-lg rounded-full w-16 h-16 drop-shadow-2xl">
                   04
                 </div>
                 <Stack
@@ -82,7 +82,7 @@ export const SchoolIntro = () => {
             </div>
           </Stack>
         </div>
-        <div className="basis-6/12 relative">
+        <div className="basis-6/12 relative -order-1 md:order-1">
           <FrameImage image="/images/female-teacher-helping-kids-in-robotics-lab.jpg" />
         </div>
       </Stack>
