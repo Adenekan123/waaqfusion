@@ -166,7 +166,7 @@ const DesktopMenu = () => {
                     Schools
                   </Link>
                   <Link
-                    href={"/shop"}
+                    href={"/solutions/partner"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
                     onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
@@ -177,7 +177,7 @@ const DesktopMenu = () => {
                     Partners
                   </Link>
                   <Link
-                    href={"/shop"}
+                    href={"/solutions/lab"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
                     onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
