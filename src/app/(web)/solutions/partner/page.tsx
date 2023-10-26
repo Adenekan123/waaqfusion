@@ -4,6 +4,9 @@ import {
   Container,
   Heading,
   HeroSub,
+  PartnerBenefits,
+  PartnershipForm,
+  Partnertro,
   SchoolIntro,
   Stack,
 } from "@/components";
@@ -17,8 +20,11 @@ const SchoolPage = () => {
         color="bg-violet-500"
         gradient="from-violet-600/80 to-violet-700"
       />
-     
+      <Partnertro/>
+      <PartnerBenefits/>
+      <PartnershipForm/>
       <Contacts />
+
     </>
   );
 };

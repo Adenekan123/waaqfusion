@@ -1,5 +1,15 @@
 import { ReactNode } from "react";
-import { IconType } from "react-icons";
+export enum PartnerExperience {
+  "no_experience" = "i have no experiance",
+  "zero_to_two" = "0 to 2 years",
+  "three_to_five" = "3 to 5 years",
+  "five above" = "more than 5 yeares",
+}
+export enum PartnerHelpType {
+  "start_academy" = "Looking to start your own Robotics and Coding",
+  "shool_sales" = "Looking to get into school sales",
+}
+
 export interface ICustomButton {
   title: ReactNode;
   styles?: string;
@@ -65,5 +75,17 @@ export interface INav {
 
 export interface INavigation extends INav {
   list?: INav[];
-  close?:()=>void
+  close?: () => void;
+}
+
+export interface IPartnershipForm {
+  name: string;
+  email: string;
+  phone: string;
+  city_state_residence: string;
+  experience: PartnerExperience | 'please select';
+  help_type: PartnerHelpType | null;
+  invest_amount: string;
+  organization: string;
+  note: string;
 }
