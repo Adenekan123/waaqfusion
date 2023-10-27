@@ -1,14 +1,9 @@
 import {
-  Body,
   Contacts,
-  Container,
-  Heading,
   HeroSub,
   PartnerBenefits,
   PartnershipForm,
   Partnertro,
-  SchoolIntro,
-  Stack,
 } from "@/components";
 import React from "react";
 
@@ -20,11 +15,10 @@ const SchoolPage = () => {
         color="bg-violet-500"
         gradient="from-violet-600/80 to-violet-700"
       />
-      <Partnertro/>
-      <PartnerBenefits/>
-      <PartnershipForm/>
+      <Partnertro />
+      <PartnerBenefits />
+      <PartnershipForm />
       <Contacts />
-
     </>
   );
 };

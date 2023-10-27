@@ -46,7 +46,7 @@ export const PartnershipForm = () => {
               styles="font-semibold mt-4"
             />
           </div>
-          <form className="bg-white py-6 md:py-16 px-6 md:px-24 shadow-xl shadow-orange-100">
+          <form className="bg-white py-6 md:py-16 px-6 md:px-24 shadow-xl shadow-violet-100">
             <div className="grid  grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <label htmlFor="name" className="font-semibold">
@@ -57,7 +57,7 @@ export const PartnershipForm = () => {
                   name="name"
                   id="name"
                   value={name}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -70,7 +70,7 @@ export const PartnershipForm = () => {
                   name="email"
                   id="email"
                   value={email}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -83,7 +83,7 @@ export const PartnershipForm = () => {
                   name="phone"
                   id="phone"
                   value={phone}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -97,7 +97,7 @@ export const PartnershipForm = () => {
                   name="city_state_residence"
                   id="city_state_residence"
                   value={city_state_residence}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -110,7 +110,7 @@ export const PartnershipForm = () => {
                   name="experience"
                   value={experience}
                   onChange={updateInput}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                 >
                   <option value="">Please Select</option>
                   <option value="i have no experiance so far">
@@ -158,7 +158,7 @@ export const PartnershipForm = () => {
                   name="invest_amount"
                   id="invest_amount"
                   value={invest_amount}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -171,7 +171,7 @@ export const PartnershipForm = () => {
                   name="organization"
                   id="organization"
                   value={organization}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
@@ -184,7 +184,7 @@ export const PartnershipForm = () => {
                   name="note"
                   id="note"
                   value={note}
-                  className="w-full py-4 px-2 border mt-3"
+                  className="w-full py-4 px-2 border mt-3 bg-violet-50"
                   onChange={updateInput}
                 />
               </div>
