@@ -6,4 +6,5 @@ export * from './heading';
 export * from './body';
 export * from './hero-wall';
 export * from './product-card';
+export * from './product-rating';
 export * from './product-carousel';
