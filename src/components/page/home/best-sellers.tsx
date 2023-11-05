@@ -14,6 +14,7 @@ export const BestSellers = () => {
           rewind: false,
           type: "loop",
           gap: "1rem",
+          padding: {right:'4rem'},
           perPage: 4,
           perMove: 1,
           breakpoints: {

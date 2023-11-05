@@ -14,7 +14,7 @@ export const ProductCarousel = ({ products }: { products: IProductCard[] }) => {
           rewind: false,
           type: "loop",
           gap: "1rem",
-          padding: {right:'2rem'},
+          padding: {right:'4rem',bottom:"4rem"},
           perPage: 4,
           perMove: 1,
           breakpoints: {
