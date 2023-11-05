@@ -188,7 +188,7 @@ const DesktopMenu = () => {
                     Lab
                   </Link>
                   <Link
-                    href={"/shop"}
+                    href={"/solutions/robotics-classroom"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
                     onClick={()=>setDropdown({shop:false,solutions:false})}
                   >
