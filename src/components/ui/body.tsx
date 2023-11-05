@@ -22,5 +22,5 @@ export const Body = ({ title, styles, type, hasEntity }: IBody) => {
     return <p className={`text-sm md:text-md ${styles}`}>{title}</p>;
   else if (type === 1)
     return <p className={`text-[13px] ${styles}`}>{title}</p>;
-  return <p className={`text-md md:text-lg ${styles}`}>{title}</p>;
+  return <p className={`text-lg md:text-lg ${styles}`}>{title}</p>;
 };
