@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const session = await getServerSession(authoptions);
   try{
-    const response = await fetch(`${process.env.API_BASE_URL}/cart/create`,{
+    const response = await fetch(`${process.env.API_BASE_URL}/cart`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json',
@@ -27,7 +27,7 @@ export async function DELETE(request: NextRequest) {
   const id = searchParams.get('cartid')
   const session = await getServerSession(authoptions);
   try{
-    const response = await fetch(`${process.env.API_BASE_URL}/cart/delete?cartid=${id}`,{
+    const response = await fetch(`${process.env.API_PARTNER_BASE_URL}/cart?cartid=${id}`,{
         method:'DELETE',
         headers:{
           'Content-Type':'application/json',

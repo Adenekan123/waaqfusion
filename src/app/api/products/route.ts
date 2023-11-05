@@ -1,17 +1,12 @@
-import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authoptions } from "../auth/[...nextauth]/next-options";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const session = await getServerSession(authoptions);
   try {
     const response = await fetch(`${process.env.API_BASE_URL}/product/filter`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer  ${session?.apiToken}`,
-      },
+        "Content-Type": "application/json"      },
       body: JSON.stringify(body),
     });
     const result = await response.json();
