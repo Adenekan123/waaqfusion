@@ -14,7 +14,7 @@ export const Body = ({ title, styles, type, hasEntity }: IBody) => {
       return (
         <p
           dangerouslySetInnerHTML={{ __html: title }}
-          className={`text-md md:text-lg ${styles}`}
+          className={`text-lg md:text-lg ${styles}`}
         />
       );
   }

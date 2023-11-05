@@ -24,6 +24,6 @@ export const Heading = ({ title, styles, type }: IHeading) => {
     );
 
   return (
-    <h2 className={` text-2xl md:text-4xl font-bold ${styles}`}>{title}</h2>
+    <h2 className={` text-3xl md:text-4xl font-bold ${styles}`}>{title}</h2>
   );
 };
