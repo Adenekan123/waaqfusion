@@ -14,6 +14,7 @@ export interface ICustomButton {
   title: ReactNode;
   styles?: string;
   gradient?: string;
+  outlined?:boolean,
   whenClicked?: () => void;
 }
 

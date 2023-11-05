@@ -3,6 +3,7 @@ import {
   Contacts,
   Container,
   Educational,
+  Filter,
   Heading,
   HeroSub,
   MostLoved,
@@ -17,29 +18,9 @@ const ShopPage = () => {
   return (
     <>
       <HeroSub page="Shop" />
-      <Container styles="py-12">
+      <Filter />
+      <Container styles="py-8" >
         <Stack direction="flex-col" gap="gap-12">
-          <div className="flex justify-between items-center">
-            <div className="flex gap-4">
-              <div>
-                <span className="bg-white px-3 py-1 rounded-3xl border border-slate-500">
-                  Kits
-                </span>
-              </div>
-              <div>
-                <span className="bg-white px-3 py-1 rounded-3xl border border-slate-500">
-                  courses
-                </span>
-              </div>
-
-              <div>
-                <span className="bg-white px-3 py-1 rounded-3xl border border-slate-500">
-                  Accessories
-                </span>
-              </div>
-            </div>
-            <GoFilter size={30} />
-          </div>
 
           <Stack direction="flex-col" gap="gap-16">
             <MostLoved />
@@ -48,8 +29,7 @@ const ShopPage = () => {
           </Stack>
         </Stack>
       </Container>
-      <Contacts/>
-
+      <Contacts />
     </>
   );
 };

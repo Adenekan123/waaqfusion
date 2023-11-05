@@ -1,6 +1,6 @@
 "use client";
 
-import { Body, Container, CustomButton, Heading, ProductCard } from "../../ui";
+import {Container, Heading, ProductCard } from "../../ui";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 import "@splidejs/react-splide/css";
