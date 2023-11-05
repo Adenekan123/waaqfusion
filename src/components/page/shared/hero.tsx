@@ -9,7 +9,7 @@ export const Hero = () => {
       <Container styles=" xl:pt-0 xl:flex flex-wrap w-full h-full relative">
         <div className="content basis-full xl:basis-2/4">
           <p className="text-sm md:text-xl uppercase text-slate-50">Dare to innovate ?</p>
-          <h1 className=" text-5xl md:text-6xl xl:text-7xl leading-tight  font-extrabold text-white">
+          <h1 className=" text-6xl md:text-6xl xl:text-7xl leading-tight  font-extrabold text-white">
             Inspiring Creativity, Engineering the Future.
           </h1>
           <p className="text-md md:text-xl text-slate-50 mt-4 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>

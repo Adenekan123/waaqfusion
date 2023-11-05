@@ -17,7 +17,7 @@ export const Solutions = () => {
   return (
     <>
     <Container styles="pt-12 md:pt-20 text-center">
-        <Heading title="our solutions" styles="capitalize"/>
+        <Heading title="our solutions" styles="capitalize mb-12"/>
     </Container>
       <HeroWall>
         <Container styles="pt-12 md:pt-20 md:mt-44 pb-12 md:pb-0">
