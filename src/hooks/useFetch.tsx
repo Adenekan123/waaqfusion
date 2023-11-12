@@ -22,7 +22,7 @@ const fetcher = async function (...args:any) {
   }
 };
 
-const useFetch = (url: string):{isLoading:Boolean,error:Error,data:any,mutate:any} => {
+export const useFetch = (url: string):{isLoading:Boolean,error:Error,data:any,mutate:any} => {
   const { isLoading, error, data,mutate } = useSWR(url, fetcher);
 
 
@@ -36,4 +36,3 @@ const useFetch = (url: string):{isLoading:Boolean,error:Error,data:any,mutate:an
   return { isLoading, error, data,mutate };
 };
 
-export default useFetch;

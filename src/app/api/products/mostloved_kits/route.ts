@@ -2,15 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const response = await fetch(
-      `${process.env.API_BASE_URL}/product/categories`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await fetch(`${process.env.API_BASE_URL}/product/mostloved_kits`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const result = await response.json();
     return NextResponse.json(result);
   } catch (err: any) {

@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest,{params}:{params:{id:string}}) {
   try {
     const response = await fetch(
-      `${process.env.API_BASE_URL}/product/categories`,
+      `${process.env.API_BASE_URL}/product/${params.id}`,
       {
         method: "GET",
         headers: {

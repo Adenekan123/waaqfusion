@@ -13,6 +13,7 @@ import { Navigation } from "./navigation";
 import { nanoid } from "nanoid";
 import { IoClose } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
+import { SignInForm } from "../signin";
 
 const MobileMenu = () => {
   const [state, setState] = useState(false);
@@ -100,7 +101,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -111,7 +114,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100  px-6 py-3"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -122,7 +127,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/shop"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -157,7 +164,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/solutions/schools"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -168,7 +177,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/solutions/partner"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -179,7 +190,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/solutions/lab"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -190,7 +203,9 @@ const DesktopMenu = () => {
                   <Link
                     href={"/solutions/robotics-classroom"}
                     className="flex gap-3 items-center hover:bg-orange-100 py-3 px-6"
-                    onClick={()=>setDropdown({shop:false,solutions:false})}
+                    onClick={() =>
+                      setDropdown({ shop: false, solutions: false })
+                    }
                   >
                     <HiOutlineExternalLink
                       size={18}
@@ -202,12 +217,13 @@ const DesktopMenu = () => {
               </div>{" "}
             </div>
           </nav>
-          <nav className="flex items-center gap-8">
+          <nav className="flex items-center gap-8 relative">
             <Search />
             <Link href={"#"} className="text-white">
               <FaCartShopping size={20} />
             </Link>
             <CustomButton title="Sign In" />
+            <SignInForm />
           </nav>
         </div>
       </Container>

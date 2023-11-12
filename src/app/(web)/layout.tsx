@@ -1,6 +1,8 @@
 "use client";
 import { Footer, Header } from "@/components";
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -8,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Header />
       {children}
       <Footer />
+      <ToastContainer/>
     </>
   );
 };

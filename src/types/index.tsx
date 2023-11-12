@@ -50,6 +50,7 @@ export interface IHeroSub {
   page: string;
   color?: string;
   gradient?: string;
+  type?:string;
 }
 export interface IProductPrice {
   curr: number;
@@ -61,6 +62,7 @@ export interface IProductRating {
   total_reviews: number;
 }
 export interface IProductCard {
+  id?:number;
   image: string;
   tag: string;
   age_range: string;
@@ -89,6 +91,12 @@ export interface IPartnershipForm {
   invest_amount: string;
   organization: string;
   note: string;
+}
+
+export interface IProductFilter {
+  categories:any[];
+  skills:any[];
+  ages:any[]
 }
 
 

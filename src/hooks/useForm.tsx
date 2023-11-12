@@ -3,7 +3,7 @@ import { redirect as go } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useForm = (
+export const useForm = (
   initialState: any,
   { url = "", redirect = "", method = "POST", staticval = {} } = {}
 ) => {
@@ -59,4 +59,3 @@ const useForm = (
   return { state, update, submit, loading, status,response };
 };
 
-export default useForm;

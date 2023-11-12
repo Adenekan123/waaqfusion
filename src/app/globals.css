@@ -55,6 +55,13 @@ background-color: #fffcfa;
   display: none!important;
 }
 
+.triangle-clip-path::before{
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media(max-width:800px) {
   .splide__arrow{
 

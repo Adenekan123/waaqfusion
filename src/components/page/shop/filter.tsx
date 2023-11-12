@@ -1,14 +1,45 @@
 "use client";
 
 import { Body, Container, CustomButton, Stack } from "@/components/ui";
-import React, { useState } from "react";
+import { useFetch } from "@/hooks";
+import { IProductFilter } from "@/types";
+import { nanoid } from "nanoid";
+import React, { EventHandler, useState } from "react";
 import { GoFilter } from "react-icons/go";
 
-export const Filter = () => {
-  const [filter, setFilter] = useState<"categories" | "skills" | "ages">(
+export const Filter = ({
+  setFilter,
+  filter,
+  applyFilter,
+}: {
+  setFilter: (v: any) => void;
+  applyFilter: () => void;
+  filter: IProductFilter;
+}) => {
+  const { data: categories } = useFetch("/api/products/categories");
+  const { data: skills } = useFetch("/api/products/skills");
+
+  const [show, setShow] = useState(false);
+  const [tab, setTab] = useState<"categories" | "skills" | "ages">(
     "categories"
   );
-  const [show, setShow] = useState(false);
+
+  const handleFilterUpdate = (
+    e: React.MouseEvent<HTMLInputElement, MouseEvent>,
+    type: keyof IProductFilter
+  ) => {
+    const { id, checked } = e.currentTarget;
+    if (!checked)
+      setFilter((prev: IProductFilter) => ({
+        ...prev,
+        [type]: prev[type].filter((item) => item !== id),
+      }));
+    else
+      setFilter((prev: IProductFilter) => ({
+        ...prev,
+        [type]: [...prev[type], id],
+      }));
+  };
   return (
     <Container styles="z-50 bg-white shadow-lg p-6 md:shadow-inherit sticky top-0">
       <div className="flex justify-between items-center">
@@ -23,7 +54,6 @@ export const Filter = () => {
               courses
             </span>
           </div>
-
           <div>
             <span className="bg-white px-3 py-1 rounded-3xl border border-slate-500">
               Accessories
@@ -35,7 +65,7 @@ export const Filter = () => {
             <GoFilter size={30} />
           </button>
           {show ? (
-            <div className="fixed z-[500] md:absolute top-0 md:top-full left-0 md:-left-72 bg-white rounded-lg shadow-2xl w-full md:w-96 h-screen md:h-auto">
+            <div className="fixed z-[500] md:absolute top-0 md:top-full left-0 md:-left-96 bg-white rounded-lg shadow-2xl w-full md:w-[30rem] h-screen md:h-auto">
               <div className="flex justify-between items-center border-b bg-white p-6">
                 <Body title="Filter" styles="font-bold" />
                 <button className="text-md font-bold text-orange-500 capitalize">
@@ -46,25 +76,25 @@ export const Filter = () => {
                 <div className="basis-6/12 bg-gray-100 border-r">
                   <div className="flex flex-col">
                     <button
-                      onClick={() => setFilter("categories")}
+                      onClick={() => setTab("categories")}
                       className={`px-6 py-4 text-left hover:bg-white ${
-                        filter === "categories" ? "bg-white font-bold" : ""
+                        tab === "categories" ? "bg-white font-bold" : ""
                       }`}
                     >
                       Categories
                     </button>
                     <button
-                      onClick={() => setFilter("skills")}
+                      onClick={() => setTab("skills")}
                       className={`px-6 py-4 text-left hover:bg-white ${
-                        filter === "skills" ? "bg-white font-bold" : ""
+                        tab === "skills" ? "bg-white font-bold" : ""
                       }`}
                     >
                       Skills
                     </button>
                     <button
-                      onClick={() => setFilter("ages")}
+                      onClick={() => setTab("ages")}
                       className={`px-6 py-4 text-left hover:bg-white ${
-                        filter === "ages" ? "bg-white font-bold" : ""
+                        tab === "ages" ? "bg-white font-bold" : ""
                       }`}
                     >
                       Ages
@@ -72,112 +102,55 @@ export const Filter = () => {
                   </div>
                 </div>
                 <div className="basis-6/12  p-6">
-                  {filter === "categories" ? (
+                  {tab === "categories" ? (
                     <Stack direction="flex-col" gap="gap-8">
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="kits"
-                      >
-                        <input type="checkbox" name="kits" id="kits" />
-                        <span className="text-md">Kits</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="kits+courses"
-                      >
-                        <input
-                          type="checkbox"
-                          name="kits+courses"
-                          id="kits+courses"
-                        />
-                        <span className="text-md">Kits + Courses</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="courses"
-                      >
-                        <input type="checkbox" name="courses" id="courses" />
-                        <span className="text-md">Courses</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="bridgekits"
-                      >
-                        <input
-                          type="checkbox"
-                          name="bridgekits"
-                          id="bridgekits"
-                        />
-                        <span className="text-md">Bridge Kits</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="accessories"
-                      >
-                        <input
-                          type="checkbox"
-                          name="accessories"
-                          id="accessories"
-                        />
-                        <span className="text-md">Accessories</span>
-                      </label>
+                      {categories && Array.isArray(categories)
+                        ? categories.map((category) => (
+                            <label
+                              key={"cat" + category.id}
+                              className="flex items-center gap-x-4 cursor-pointer"
+                              htmlFor={`${category.id}`}
+                            >
+                              <input
+                                type="checkbox"
+                                name={`${category.name}`}
+                                id={`${category.id}`}
+                                checked={filter.categories.includes(
+                                  `${category.id}`
+                                )}
+                                onClick={(e) =>
+                                  handleFilterUpdate(e, "categories")
+                                }
+                              />
+                              <span className="text-md">{`${category.name}`}</span>
+                            </label>
+                          ))
+                        : null}
                     </Stack>
                   ) : null}
-                  {filter === "skills" ? (
+                  {tab === "skills" ? (
                     <Stack direction="flex-col" gap="gap-8">
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="robotic"
-                      >
-                        <input type="checkbox" name="robotic" id="robotic" />
-                        <span className="text-md">Robotics</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="coding"
-                      >
-                        <input type="checkbox" name="coding" id="coding" />
-                        <span className="text-md">Coding</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="iot"
-                      >
-                        <input type="checkbox" name="iot" id="iot" />
-                        <span className="text-md">IoT</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="electronics"
-                      >
-                        <input
-                          type="checkbox"
-                          name="electronics"
-                          id="electronics"
-                        />
-                        <span className="text-md">Electronics</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="ai"
-                      >
-                        <input type="checkbox" name="ai" id="ai" />
-                        <span className="text-md">AI</span>
-                      </label>
-                      <label
-                        className="flex items-center gap-x-4 cursor-pointer"
-                        htmlFor="mechanical_design"
-                      >
-                        <input
-                          type="checkbox"
-                          name="mechanical_design"
-                          id="mechanical_design"
-                        />
-                        <span className="text-md">Mechanical Design</span>
-                      </label>
+                      {skills && Array.isArray(skills)
+                        ? skills.map((skill) => (
+                            <label
+                              key={"skill" + skill.id}
+                              className="flex items-center gap-x-4 cursor-pointer"
+                              htmlFor={`${skill.id}`}
+                            >
+                              <input
+                                type="checkbox"
+                                name={`${skill.name}`}
+                                id={`${skill.id}`}
+                                checked={filter.skills.includes(`${skill.id}`)}
+                                onClick={(e) => handleFilterUpdate(e, "skills")}
+                              />
+                              <span className="text-md">{`${skill.name}`}</span>
+                            </label>
+                          ))
+                        : null}
                     </Stack>
                   ) : null}
-                  {filter === "ages" ? (
+                  {tab === "ages" ? (
                     <Stack direction="flex-col" gap="gap-8">
                       <label
                         className="flex items-center gap-x-4 cursor-pointer"
@@ -205,8 +178,13 @@ export const Filter = () => {
                 </div>
               </div>
               <div className="flex justify-between items-center border-b bg-white px-6 pt-2 pb-4 border-t">
-                <CustomButton title="Close" outlined styles="shadow-lg bg-red-100" whenClicked={()=>setShow(false)} />
-                <CustomButton title="Apply Filter" styles="shadow-lg" />
+                <CustomButton
+                  title="Close"
+                  outlined
+                  styles="shadow-lg bg-red-100"
+                  whenClicked={() => setShow(false)}
+                />
+                <CustomButton title="Apply Filter" whenClicked={()=>applyFilter()} styles="shadow-lg" />
               </div>
             </div>
           ) : null}
