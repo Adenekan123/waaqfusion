@@ -5,17 +5,12 @@ export const Body = ({ title, styles, type, hasEntity }: IBody) => {
   if (hasEntity) {
     if (type === 0.5)
       return (
-        <p
-          dangerouslySetInnerHTML={{ __html: title }}
-          className={`text-sm md:text-md ${styles}`}
-        />
+        <p className={`text-sm md:text-md ${styles}`}
+        >&#8358;{parseFloat(title).toLocaleString("en",{minimumFractionDigits:2})} /</p>
       );
     else
       return (
-        <p
-          dangerouslySetInnerHTML={{ __html: title }}
-          className={`text-lg md:text-lg ${styles}`}
-        />
+        <p className={`text-lg md:text-lg ${styles}`}>&#8358;{parseFloat(title).toLocaleString("en",{minimumFractionDigits:2})}</p>
       );
   }
   if (type === 0.5)

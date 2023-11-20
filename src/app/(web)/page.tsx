@@ -3,6 +3,7 @@ import {
   CeoVideo,
   CompanyIntro,
   Contacts,
+  Drawer,
   Hero,
   LearnBundle,
   Solutions,

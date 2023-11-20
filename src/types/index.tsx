@@ -1,3 +1,4 @@
+import { type } from "os";
 import { ReactNode } from "react";
 export enum PartnerExperience {
   "no_experience" = "i have no experiance",
@@ -14,7 +15,10 @@ export interface ICustomButton {
   title: ReactNode;
   styles?: string;
   gradient?: string;
-  outlined?:boolean,
+  outlined?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  type?: "submit" | "button" | "reset";
   whenClicked?: () => void;
 }
 
@@ -50,7 +54,7 @@ export interface IHeroSub {
   page: string;
   color?: string;
   gradient?: string;
-  type?:string;
+  type?: string;
 }
 export interface IProductPrice {
   curr: number;
@@ -62,7 +66,7 @@ export interface IProductRating {
   total_reviews: number;
 }
 export interface IProductCard {
-  id?:number;
+  id?: number;
   image: string;
   tag: string;
   age_range: string;
@@ -86,7 +90,7 @@ export interface IPartnershipForm {
   email: string;
   phone: string;
   city_state_residence: string;
-  experience: PartnerExperience | 'please select';
+  experience: PartnerExperience | "please select";
   help_type: PartnerHelpType | null;
   invest_amount: string;
   organization: string;
@@ -94,9 +98,21 @@ export interface IPartnershipForm {
 }
 
 export interface IProductFilter {
-  categories:any[];
-  skills:any[];
-  ages:any[]
+  categories: any[];
+  skills: any[];
+  ages: any[];
 }
 
-
+export interface ICart {
+  loading:boolean;
+  products: ICartItem[];
+  total: number;
+  price:number,
+  type: "online" | "offline";
+}
+export interface ICartItem {
+  id:number;
+  productid: number;
+  quantity: number;
+  product: IProductCard
+}

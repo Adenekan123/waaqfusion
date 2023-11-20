@@ -1,21 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./search";
 import { FaCartShopping } from "react-icons/fa6";
 import { HiMenu, HiOutlineExternalLink } from "react-icons/hi";
 import { CustomButton } from "../../ui/custom-button";
 import Image from "next/image";
-import { Container, Stack } from "../../ui";
+import { Container, Drawer, Stack } from "../../ui";
 import { navigations } from "../../../../static";
 import { Navigation } from "./navigation";
-import { nanoid } from "nanoid";
 import { IoClose } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
 import { SignInForm } from "../signin";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { ProfileDropdown } from "../profile";
+import { CartContext, useCartContext } from "@/contexts";
+import { useToggler } from "@/hooks";
+import { Cart } from "./cart";
 
-const MobileMenu = () => {
+const MobileMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
   const [state, setState] = useState(false);
   return (
     <Container styles="block lg:hidden z-10 bg-transparent absolute top-0 left-0 w-full">
@@ -57,8 +62,17 @@ const MobileMenu = () => {
   );
 };
 
-const DesktopMenu = () => {
+const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
+  const { data: session } = useSession();
+  const { state } = useCartContext();
   const [dropdown, setDropdown] = useState({ shop: false, solutions: false });
+  const [showSignin, setShowSignin] = useState(false);
+  const params = useSearchParams();
+
+  useEffect(() => {
+    if (params.get("signin")) setShowSignin(true);
+  }, [params]);
+
   return (
     <div className="w-full py-4 z-10 text-white font-bold hidden lg:block absolute top-0 left-0">
       <Container>
@@ -219,11 +233,29 @@ const DesktopMenu = () => {
           </nav>
           <nav className="flex items-center gap-8 relative">
             <Search />
-            <Link href={"#"} className="text-white">
+            <button
+              className="text-white relative"
+              onClick={() => toggleCart()}
+            >
               <FaCartShopping size={20} />
-            </Link>
-            <CustomButton title="Sign In" />
-            <SignInForm />
+              {state.total ? (
+                <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-black bg-white border-2 border-orange-200 rounded-full -top-3 -end-3 ">
+                  {state.total}
+                </div>
+              ) : null}
+            </button>
+            {session?.user ? (
+              <ProfileDropdown />
+            ) : (
+              <>
+                {" "}
+                <CustomButton
+                  whenClicked={() => setShowSignin((prev) => !prev)}
+                  title="Sign In"
+                />
+                {showSignin ? <SignInForm /> : null}
+              </>
+            )}
           </nav>
         </div>
       </Container>
@@ -232,10 +264,14 @@ const DesktopMenu = () => {
 };
 
 export const Header = () => {
+  const { state, toggle } = useToggler();
   return (
     <>
-      <DesktopMenu />
-      <MobileMenu />
+      <DesktopMenu toggleCart={toggle} />
+      <MobileMenu toggleCart={toggle} />
+      <Drawer open={state}>
+        <Cart close={toggle} />
+      </Drawer>
     </>
   );
 };

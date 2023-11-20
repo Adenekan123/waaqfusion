@@ -26,7 +26,7 @@ export const authoptions: NextAuthOptions = {
             ) {
               res.user = {
                 email: credentials.email,
-                apiToken: res.accessToken,
+                apiToken: res.accesToken, 
               };
               return { ...res.user };
             } else {
@@ -55,7 +55,7 @@ export const authoptions: NextAuthOptions = {
       return baseUrl;
     },
     async session({ session, token }: { session: any; token: JWT }) {
-      // console.log("==session==",{token,session});
+      
 
       session.apiToken = token.apiToken as string;
       return session;
@@ -70,6 +70,6 @@ export const authoptions: NextAuthOptions = {
   },
 
   pages: {
-    signIn: "/signin/",
+    signIn: "/?signin=1",
   },
 };

@@ -1,7 +1,7 @@
 export const authenticate = async (email: string, password: string,url:string | undefined) => {
   try {
     return await (
-      await fetch(`${url}/user/login`, {
+      await fetch(`${url}/auth/user/login`, {
         cache:'no-cache',
         method: "POST",
         body: JSON.stringify({ email, password }),

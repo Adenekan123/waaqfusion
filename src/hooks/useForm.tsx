@@ -36,7 +36,7 @@ export const useForm = (
       setLoading(false);
       const result = await response.json();
       if(result === 'fetch failed') return toast.warning('Network Failure, Check your internet');
-      if (result.error) throw new Error(result.message);
+      if (result.error) throw new Error(result.error);
       if(result === 'fetch failed') throw new Error('Poor Network');
       setResponse(result);
       setStatus({success:result.message,error:''});
