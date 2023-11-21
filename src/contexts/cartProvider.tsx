@@ -9,18 +9,19 @@ export const initial_context: IUseCart = {
   state: cart_initial_state,
   addtocart: async () => {},
   removefromcart: async () => {},
+  emptycart:  () => {},
+  togglecart:  () => {},
 };
 
 export const CartContext = createContext(initial_context);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const { data: session } = useSession();
-  const { state, addtocart, removefromcart } =
-    useCart(session?.user ? "online" : "offline");
+  const { state, addtocart, removefromcart,emptycart,togglecart } = useCart(
+    session?.user ? "online" : "offline"
+  );
 
-  const value = { state, addtocart, removefromcart };
-
-
+  const value = { state, addtocart, removefromcart,emptycart,togglecart };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

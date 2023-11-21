@@ -8,6 +8,8 @@ export interface IUseCart {
   state: ICart;
   addtocart: (product: IProductCard, quantity?: number) => Promise<void>;
   removefromcart: (productid: number) => Promise<void>;
+  emptycart: () =>void;
+  togglecart: () =>void;
 }
 const productToCart = (product: IProductCard, cartid: number) => {
   return {
@@ -19,7 +21,7 @@ const productToCart = (product: IProductCard, cartid: number) => {
 };
 const addtocart_local = (product: IProductCard) => {
   const carts = JSON.parse(
-    localStorage.getItem(process.env.LOCAL_CART_KEY as string) as string
+    localStorage.getItem(process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string) as string
   ) as ICartItem[];
 
   if (carts) {
@@ -31,21 +33,21 @@ const addtocart_local = (product: IProductCard) => {
           : cart
       );
       localStorage.setItem(
-        process.env.LOCAL_CART_KEY as string,
+        process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string,
         JSON.stringify(newcarts)
       );
       return { message: "Item updated", carts: newcarts };
     } else {
       const newcarts = [productToCart(product, carts.length + 1), ...carts];
       localStorage.setItem(
-        process.env.LOCAL_CART_KEY as string,
+        process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string,
         JSON.stringify(newcarts)
       );
       return { message: "Item added", carts: newcarts };
     }
   } else {
     localStorage.setItem(
-      process.env.LOCAL_CART_KEY as string,
+      process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string,
       JSON.stringify([productToCart(product, 1)])
     );
     return { message: "Item added", carts: [productToCart(product, 1)] };
@@ -53,13 +55,13 @@ const addtocart_local = (product: IProductCard) => {
 };
 const removefromcart_local = (cartid: number) => {
   const carts = JSON.parse(
-    localStorage.getItem(process.env.LOCAL_CART_KEY as string) as string
+    localStorage.getItem(process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string) as string
   ) as ICartItem[];
   const cartExist = carts.some((cart) => cart.id === cartid);
   if (cartExist) {
     const newcarts = carts.filter((cart) => cart.id !== cartid);
     localStorage.setItem(
-      process.env.LOCAL_CART_KEY as string,
+      process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string,
       JSON.stringify(newcarts)
     );
     return { message: "Item deleted successfully", carts: newcarts };
@@ -67,7 +69,7 @@ const removefromcart_local = (cartid: number) => {
 };
 const getcarts_local = () => {
   const carts = JSON.parse(
-    localStorage.getItem(process.env.LOCAL_CART_KEY as string) as string
+    localStorage.getItem(process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string) as string
   ) as ICartItem[];
 
   if (carts) return carts;
@@ -135,15 +137,22 @@ export const useCart = (type: "online" | "offline") => {
   const getAllcarts = async () => {
     dispatch({ type: "carts_pending" });
     try {
-      const carts = type === "offline" ? getcarts_local() : getcarts_local();
+      const carts = type === "offline" ? getcarts_local() : await getcarts_async();
       if (carts && Array.isArray(carts))
         dispatch({ type: "carts_successful", payload: carts });
       else throw new Error("Unable to fetch carts");
     } catch (err: any) {
       dispatch({ type: "carts_failure" });
-      toast.error(err?.message);
+      // toast.error(err?.message);
     }
   };
+
+  const emptycart = ()=>{
+    localStorage.removeItem(process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string);
+    dispatch({type:"reset_cart"})
+  }
+
+  const togglecart = () => dispatch({type:"toggle_cart"})
 
   const set_total_carts = () => dispatch({ type: "update_cart" });
 
@@ -155,5 +164,5 @@ export const useCart = (type: "online" | "offline") => {
     set_total_carts();
   }, [state.products]);
 
-  return { state, addtocart, removefromcart, getAllcarts, set_total_carts };
+  return { state, addtocart, removefromcart, getAllcarts,togglecart, set_total_carts,emptycart };
 };

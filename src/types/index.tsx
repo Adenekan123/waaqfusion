@@ -104,6 +104,7 @@ export interface IProductFilter {
 }
 
 export interface ICart {
+  visible:boolean;
   loading:boolean;
   products: ICartItem[];
   total: number;
@@ -115,4 +116,16 @@ export interface ICartItem {
   productid: number;
   quantity: number;
   product: IProductCard
+}
+export interface IVisitor {
+  name: string;
+  phone: string;
+  email: string;
+  address: string;
+  state: string;
+}
+export interface IOrderItem {
+  productid: number;
+  quantity: number;
+  totalAmount: number
 }

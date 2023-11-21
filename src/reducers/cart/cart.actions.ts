@@ -11,7 +11,9 @@ export const cartActions: cartAction_types = {
   deletingFromCart_successful: "CART/DELETEING_FROM_CART_SUCCESSFUL",
   deletingFromCart_failure: "CART/DELETEING_FROM_CART_FAILURE",
 
-  update_cart:"CART/UPDATE_CART"
+  update_cart:"CART/UPDATE_CART",
+  reset_cart:"CART/RESET_CART",
+  toggle_cart:"CART/TOGGLE_CART"
 };
 
 export interface cartAction_types {
@@ -28,6 +30,11 @@ export interface cartAction_types {
   deletingFromCart_failure: string;
 
   update_cart:string;
+
+  reset_cart:string;
+
+  toggle_cart:string;
+
 }
 
 export interface ICartActions {

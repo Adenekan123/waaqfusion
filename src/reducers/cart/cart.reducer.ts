@@ -2,6 +2,7 @@ import { ICart, ICartItem } from "@/types";
 import { ICartActions } from "./cart.actions";
 
 export const cart_initial_state: ICart = {
+  visible:false,
   loading: false,
   products: [],
   total: 0,
@@ -58,6 +59,18 @@ export const cartReducer = (
     case "update_cart": {
       const { totalPrice, totalQty } = getCartQtyAndPrice(state.products);
       return { ...state, total: totalQty, price: totalPrice };
+    }
+
+    case "reset_cart": {
+      return {...cart_initial_state };
+    }
+
+    case "reset_cart": {
+      return {...cart_initial_state };
+    }
+
+    case "toggle_cart": {
+      return {...state,visible:!state.visible };
     }
 
     default:

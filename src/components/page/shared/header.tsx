@@ -264,13 +264,13 @@ const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
 };
 
 export const Header = () => {
-  const { state, toggle } = useToggler();
+  const {state,togglecart} = useCartContext()
   return (
     <>
-      <DesktopMenu toggleCart={toggle} />
-      <MobileMenu toggleCart={toggle} />
-      <Drawer open={state}>
-        <Cart close={toggle} />
+      <DesktopMenu toggleCart={togglecart} />
+      <MobileMenu toggleCart={togglecart} />
+      <Drawer open={state.visible}>
+        <Cart close={togglecart} />
       </Drawer>
     </>
   );
