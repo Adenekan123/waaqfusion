@@ -129,3 +129,11 @@ export interface IOrderItem {
   quantity: number;
   totalAmount: number
 }
+export interface IMyOrderItem extends IOrderItem {
+  id:number;
+  totalAmount:number;
+  status:number;
+  createdAt:string;
+  updatedAt:string;
+  product:IProductCard
+}

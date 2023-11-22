@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
   const session = await getServerSession(authoptions);
   try {
     const response = await fetch(
-      `${process.env.API_PARTNER_BASE_URL}/cart`,
+      `${process.env.API_PARTNER_BASE_URL}/partner/order`,
       {
         method: "GET",
         headers: {

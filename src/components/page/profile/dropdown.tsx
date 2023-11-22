@@ -34,8 +34,9 @@ export const ProfileDropdown = () => {
               <span>My profile</span>
             </Link>
             <Link
-              href={"/profile"}
+              href={"/my-orders"}
               className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100"
+              onClick={()=>setHide(true)}
             >
               <TbShoppingCartCog size={18} />
               <span>My orders</span>

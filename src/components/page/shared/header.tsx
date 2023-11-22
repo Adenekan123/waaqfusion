@@ -13,14 +13,13 @@ import { Navigation } from "./navigation";
 import { IoClose } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
 import { SignInForm } from "../signin";
-import { useRouter, useSearchParams } from "next/navigation";
+import {useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { ProfileDropdown } from "../profile";
-import { CartContext, useCartContext } from "@/contexts";
-import { useToggler } from "@/hooks";
+import {useCartContext } from "@/contexts";
 import { Cart } from "./cart";
 
-const MobileMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
+const MobileMenu = () => {
   const [state, setState] = useState(false);
   return (
     <Container styles="block lg:hidden z-10 bg-transparent absolute top-0 left-0 w-full">
@@ -268,7 +267,7 @@ export const Header = () => {
   return (
     <>
       <DesktopMenu toggleCart={togglecart} />
-      <MobileMenu toggleCart={togglecart} />
+      <MobileMenu  />
       <Drawer open={state.visible}>
         <Cart close={togglecart} />
       </Drawer>
