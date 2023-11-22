@@ -42,7 +42,7 @@ export const ProfileDropdown = () => {
               <span>My orders</span>
             </Link>
             <Link
-              href={"/profile"}
+              href={"/settings"}
               className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100"
             >
               <MdSettings size={18} />

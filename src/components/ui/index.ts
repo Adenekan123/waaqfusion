@@ -11,3 +11,4 @@ export * from './product-rating';
 export * from './product-price';
 export * from './product-carousel';
 export * from './drawer';
+export * from './modal';
