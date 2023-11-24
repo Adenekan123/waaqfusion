@@ -1,10 +1,15 @@
+"use client";
+
 import { Heading, Modal } from "@/components/ui";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { Form } from "./form";
 import Link from "next/link";
+import { useFetch } from "@/hooks";
+import { signOut } from "next-auth/react";
 
 export const Profile = () => {
+const {data,isLoading,mutate} = useFetch("/api/profile/user");
   return (
     <>
       <div className="rounded-lg">
@@ -26,7 +31,7 @@ export const Profile = () => {
                   First name
                 </th>
                 <td className="px-6 py-2" align="right">
-                  Adenekan
+                  {data?.firstname}
                 </td>
               </tr>
               <tr>
@@ -34,7 +39,7 @@ export const Profile = () => {
                   Last name
                 </th>
                 <td className="px-6 py-2" align="right">
-                  Usmann
+                  {data?.lastname}
                 </td>
               </tr>
               <tr>
@@ -42,7 +47,7 @@ export const Profile = () => {
                   Email ID
                 </th>
                 <td className="px-6 py-2" align="right">
-                  mr.mekan123@gmail.com
+                  {data?.email}
                 </td>
               </tr>
               <tr>
@@ -50,13 +55,13 @@ export const Profile = () => {
                   Phone
                 </th>
                 <td className="px-6 py-2" align="right">
-                  +2349076308204
+                  {data?.phone}
                 </td>
               </tr>
             </tbody>
           </table>
           <div className="p-6 text-center border-t">
-            <button className=" text-sm md:text-lg bg-red-500 text-red-100 px-4 py-1 md:py-2 rounded-full font-semibold capitalize md:w-56">
+            <button onClick={()=> signOut()} className=" text-sm md:text-lg bg-red-500 text-red-100 px-4 py-1 md:py-2 rounded-full font-semibold capitalize md:w-56">
               Logout
             </button>
           </div>
@@ -64,7 +69,7 @@ export const Profile = () => {
       </div>
 
       <Modal matcher="edit-profile" title="Personal Details">
-        <Form />
+        {data ? <Form details={...data} mutate={mutate} /> : null}
       </Modal>
     </>
   );

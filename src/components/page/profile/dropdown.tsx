@@ -26,13 +26,13 @@ export const ProfileDropdown = () => {
       {hide ? null : (
         <div className="pt-6 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 absolute top-24 left-4 before:w-6 before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path">
           <div className="flex flex-col">
-            <Link
+            {/* <Link
               href={"/profile"}
               className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100"
             >
               <LuUser size={18} />
               <span>My profile</span>
-            </Link>
+            </Link> */}
             <Link
               href={"/my-orders"}
               className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100"
@@ -43,7 +43,7 @@ export const ProfileDropdown = () => {
             </Link>
             <Link
               href={"/settings"}
-              className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100"
+              className="flex items-center border-b border-slate-300 px-6 py-3 gap-x-4 hover:bg-orange-100" onClick={()=>setHide(true)}
             >
               <MdSettings size={18} />
               <span>Settings</span>

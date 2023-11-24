@@ -124,6 +124,12 @@ export interface IVisitor {
   address: string;
   state: string;
 }
+export interface IPartner {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+}
 export interface IOrderItem {
   productid: number;
   quantity: number;

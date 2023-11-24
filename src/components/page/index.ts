@@ -6,5 +6,5 @@ export * from './solutions';
 export * from './signin';
 export * from './signup';
 export * from './profile';
-export * from './orders';
+export * from '../../app/api/image/orders';
 export * from './settings';

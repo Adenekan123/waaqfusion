@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import {
   Body,
@@ -12,12 +13,14 @@ import { ImUsers } from "react-icons/im";
 import { RiHomeOfficeFill } from "react-icons/ri";
 import { BsRobot } from "react-icons/bs";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 
 export const Solutions = () => {
   return (
     <>
     <Container styles="pt-12 md:pt-20 text-center">
         <Heading title="our solutions" styles="capitalize mb-12"/>
+        <button onClick={()=>signOut()}>Logout</button>
     </Container>
       <HeroWall>
         <Container styles="pt-12 md:pt-20 md:mt-44 pb-12 md:pb-0">
