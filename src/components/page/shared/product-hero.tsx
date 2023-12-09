@@ -56,7 +56,7 @@ export const ProductHero = ({
             </div>
             <div className="flex items-center justify-start mt-8 gap-x-1 ">
               <AiFillStar className="text-yellow-300" size={24} />
-              <h3 className="text-white">{`${product?.ratings.rating} (${product?.ratings.total_reviews})`}</h3>
+              <h3 className="text-white">{`${product?.ratings.rating} (${product?.ratings.totalreviews})`}</h3>
             </div>
             <div className="flex gap-8 items-center text-white mt-16 font-bold text-xl">
               <Link onClick={() => router.back()} href={"#"}>
