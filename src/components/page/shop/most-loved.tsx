@@ -1,7 +1,6 @@
 "use client"
 import { Heading, ProductCarousel, Stack } from "@/components/ui";
 import React from "react";
-import { most_loved } from "../../../../static";
 import { useFetch } from "@/hooks";
 
 export const MostLoved = () => {
