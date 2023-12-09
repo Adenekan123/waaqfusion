@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
-  const url = searchParams.get('url')
+  const productid = searchParams.get('productid');
+  const imageid = searchParams.get('imageid');
   try {
-    const response = await fetch(`${process.env.API_BASE_URL}/image/${url}`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/product/image?productid=${productid}&imageid=${imageid}`, {
       method: "GET",
       headers: {
         "Content-Type": "image/webp",

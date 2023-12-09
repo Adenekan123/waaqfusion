@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import { BsCaretDownFill } from "react-icons/bs";
 import { CgLogOut } from "react-icons/cg";
 import { FaUserCircle } from "react-icons/fa";
-import { LuUser } from "react-icons/lu";
 import { MdSettings } from "react-icons/md";
 import { TbShoppingCartCog } from "react-icons/tb";
 

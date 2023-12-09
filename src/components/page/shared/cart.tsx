@@ -34,7 +34,7 @@ const gotoShop = () =>{
       <div className="flex flex-col gap-4 h-[80vh] p-6 overflow-hidden overflow-y-auto">
         {state?.products &&
         Array.isArray(state.products) &&
-        state.products.length ? (
+        state?.products.length ? (
           state?.products.map((product) => (
             <CartItem key={"cart" + product?.id} {...product} />
           ))
@@ -54,7 +54,7 @@ const gotoShop = () =>{
           </div>
         )}
       </div>
-      {state.products.length ? (
+      {state?.products.length ? (
         <div className="mt-auto border-t py-3 px-6 pt-6 text-center">
           <h3 className={`text-lg md:text-xl font-bold mb-4`}>
             Total: &#8358;

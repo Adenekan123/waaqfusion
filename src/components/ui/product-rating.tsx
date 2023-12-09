@@ -1,5 +1,4 @@
 import React from "react";
-import { Heading } from "./heading";
 import { AiFillStar } from "react-icons/ai";
 import { Body } from "./body";
 import { IProductRating } from "@/types";
@@ -11,7 +10,7 @@ export const ProductRating = ({ ratings }: {ratings:IProductRating}) => {
       <Body
         type={1}
         styles="font-semibold"
-        title={`${ratings.rating} (${ratings.total_reviews})`}
+        title={`${ratings.rating} (${ratings.totalreviews})`}
       />
     </div>
   );

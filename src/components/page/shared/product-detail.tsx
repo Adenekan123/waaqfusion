@@ -12,17 +12,17 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import React, { useRef, useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { useFetch } from "@/hooks";
-import { HeroSub } from "./hero-sub";
 import { ProductHero } from "./product-hero";
-import { PiPulse } from "react-icons/pi";
 
 export const ProductDetail = ({ productid }: { productid?: string }) => {
   const { data, isLoading } = useFetch(`/api/products/${productid}`);
 
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<{ contentType: string; _id: string }[]>(
+    []
+  );
 
   useEffect(() => {
-    if (data && data.image) setImages(data.image.split("+"));
+    if (data && data.images) setImages(data.images);
   }, [data]);
 
   const mainRef = useRef<Splide>(null);
@@ -88,7 +88,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                 }}
               >
                 {images.length &&
-                  images.map((image: string, index: number) => (
+                  images.map((image, index: number) => (
                     <SplideSlide key={nanoid(5)}>
                       <div
                         className={`border p-3 ${
@@ -99,7 +99,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                       >
                         <button onClick={() => handleThumbs(index)}>
                           <img
-                            src={"/api/image?url=" + image}
+                            src={`/api/products/image?productid=${productid}&imageid=${image._id}`}
                             width={"100%"}
                             height={"100%"}
                             alt="robotics_classroom_gadgets"
@@ -114,7 +114,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
           <div className="flex flex-col md:flex-row  gap-12 basis-full md:basis-9/12">
             <div className="basis-full md:basis-5/12 ">
               <div className="rounded-lg border overflow-hidden p-3">
-                {isLoading ? (
+                {isLoading && !data ? (
                   <div role="status" className="animate-pulse">
                     <div className="flex items-center justify-center w-full h-56 bg-gray-300 rounded dark:bg-gray-700">
                       <svg
@@ -130,7 +130,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   </div>
                 ) : (
                   <img
-                    src={"/api/image?url=" + images[currentIndex]}
+                    src={`/api/products/image?productid=${productid}&imageid=${data.images[0]._id}`}
                     alt="product thumbnail"
                     width={"100%"}
                     height={"100%"}
@@ -159,7 +159,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   )}
                 </div>
 
-                {isLoading ? (
+                {isLoading && !data ? (
                   <div role="status" className="animate-pulse h-full">
                     <div className="flex flex-col gap-8">
                       <div className="h-6 bg-slate-700 rounded-md  w-[20%]"></div>
@@ -169,7 +169,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   </div>
                 ) : (
                   <>
-                    <ProductPrice price={data?.price} />
+                    {data?.price ? <ProductPrice price={data.price} /> : null}
                     <Body title="Avishkaar's Flagship Robotics Solution for Schools" />
                     <CustomButton
                       title="Buy Now"

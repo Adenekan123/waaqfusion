@@ -15,7 +15,7 @@ const CartItem = (item: ICartItem) => {
     <div className="flex gap-6 bg-orange-100 p-3 rounded-md">
       <div className="product-image border rounded-lg h-32 w-32">
         <img
-          src={"/api/image?url=" + product?.image.split("+")[0]}
+          src={`/api/products/image?productid=${product._id}&imageid=${product.images[0]._id}`}
           width={"100%"}
           height={"100%"}
           alt={product?.name}
@@ -39,7 +39,7 @@ const CartItem = (item: ICartItem) => {
           </div>
           <div
             className="w-6 h-6 border bg-white border-blue-600 text-blue-600 inline-flex items-center justify-center cursor-pointer"
-            onClick={() => addtocart(product)}
+            onClick={() => addtocart(product,quantity + 1)}
           >
             <FaPlus size={8} />
           </div>
@@ -56,7 +56,7 @@ const CartItem = (item: ICartItem) => {
           />
         </div>
       </div>
-      <button className=" bg-transparent border-0 outline-0 ml-auto mb-auto" onClick={()=>removefromcart(id)}>
+      <button className=" bg-transparent border-0 outline-0 ml-auto mb-auto" onClick={()=>removefromcart(product._id)}>
         <CgClose size={18} />
       </button>
     </div>

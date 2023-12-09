@@ -8,7 +8,7 @@ export const BestSellers = () => {
   return (
     <Container styles="py-12 md:py-24">
       <Heading styles="text-center mb-16" title="Our Best Sellers" />
-      <Splide
+      {/* <Splide
         aria-label="My Favorite Images"
         options={{
           rewind: false,
@@ -29,8 +29,8 @@ export const BestSellers = () => {
             name="MEX Robotics & AI"
             tag="Robotics"
             price={{ curr: 2499, prev: 3499, discount: 28 }}
-            image="/images/mrsk-thumbnail.webp"
-            ratings={{ rating: 5, total_reviews: 238 }}
+            images="/images/mrsk-thumbnail.webp"
+            ratings={{ rating: 5, totalreviews: 238 }}
             age_range="8+ Ages"
           />
         </SplideSlide>
@@ -105,7 +105,7 @@ export const BestSellers = () => {
           />
         </SplideSlide>
       
-      </Splide>
+      </Splide> */}
     </Container>
   );
 };

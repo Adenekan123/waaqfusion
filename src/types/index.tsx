@@ -63,11 +63,11 @@ export interface IProductPrice {
 }
 export interface IProductRating {
   rating: number;
-  total_reviews: number;
+  totalreviews: number;
 }
 export interface IProductCard {
-  id?: number;
-  image: string;
+  _id?: any;
+  images:{buffer:Buffer;contentType:string,_id:any}[]
   tag: string;
   age_range: string;
   name: string;
@@ -113,6 +113,7 @@ export interface ICart {
 }
 export interface ICartItem {
   id:number;
+  _id?:string;
   productid: number;
   quantity: number;
   product: IProductCard
@@ -131,14 +132,15 @@ export interface IPartner {
   phone: string;
 }
 export interface IOrderItem {
-  productid: number;
+  productid: IProductCard;
   quantity: number;
-  totalAmount: number
+  totalAmount?: number
 }
-export interface IMyOrderItem extends IOrderItem {
-  id:number;
-  totalAmount:number;
-  status:number;
+export interface IMyOrderItem {
+  _id:string;
+  orders:IOrderItem[];
+  status:string;
+  totalamount:number;
   createdAt:string;
   updatedAt:string;
   product:IProductCard

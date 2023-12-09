@@ -10,6 +10,7 @@ import { signOut } from "next-auth/react";
 
 export const Profile = () => {
 const {data,isLoading,mutate} = useFetch("/api/profile/user");
+console.log(data);
   return (
     <>
       <div className="rounded-lg">

@@ -17,6 +17,7 @@ export const useProductFetch = () => {
   const [filter, setFilter] = useState<IProductFilter>(initialFilter);
 
   const applyFilter = async () => {
+    console.log(filter)
     setProducts((prev) => ({ ...prev, loading: true }));
     try {
       const request = await fetch("/api/products", {

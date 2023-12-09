@@ -107,16 +107,16 @@ export const Filter = ({
                       {categories && Array.isArray(categories)
                         ? categories.map((category) => (
                             <label
-                              key={"cat" + category.id}
+                              key={"cat" + category._id}
                               className="flex items-center gap-x-4 cursor-pointer"
-                              htmlFor={`${category.id}`}
+                              htmlFor={`${category._id}`}
                             >
                               <input
                                 type="checkbox"
                                 name={`${category.name}`}
-                                id={`${category.id}`}
+                                id={`${category._id}`}
                                 checked={filter.categories.includes(
-                                  `${category.id}`
+                                  `${category._id}`
                                 )}
                                 onClick={(e) =>
                                   handleFilterUpdate(e, "categories")
@@ -133,15 +133,15 @@ export const Filter = ({
                       {skills && Array.isArray(skills)
                         ? skills.map((skill) => (
                             <label
-                              key={"skill" + skill.id}
+                              key={"skill" + skill._id}
                               className="flex items-center gap-x-4 cursor-pointer"
-                              htmlFor={`${skill.id}`}
+                              htmlFor={`${skill._id}`}
                             >
                               <input
                                 type="checkbox"
                                 name={`${skill.name}`}
-                                id={`${skill.id}`}
-                                checked={filter.skills.includes(`${skill.id}`)}
+                                id={`${skill._id}`}
+                                checked={filter.skills.includes(`${skill._id}`)}
                                 onClick={(e) => handleFilterUpdate(e, "skills")}
                               />
                               <span className="text-md">{`${skill.name}`}</span>

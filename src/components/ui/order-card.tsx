@@ -1,5 +1,5 @@
 "use client";
-import { IMyOrderItem} from "@/types";
+import {IOrderItem} from "@/types";
 import React from "react";
 import { Heading } from "./heading";
 import { Body } from "./body";
@@ -8,8 +8,8 @@ import { ProductRating } from "./product-rating";
 import Link from "next/link";
 
 
-export const OrderCard = ({orderItem}:{orderItem:IMyOrderItem}) => {
-  const {quantity,product} = orderItem
+export const OrderCard = ({orderItem}:{orderItem:IOrderItem}) => {
+  const {quantity,productid:product} = orderItem
   const { curr, prev, discount } = product.price;
 
 
@@ -17,9 +17,9 @@ export const OrderCard = ({orderItem}:{orderItem:IMyOrderItem}) => {
     <div
       className="relative  border border-green-100 rounded-3xl overflow-hidden bg-green-50 h-full"
     >
-      <Link href={`/product/${product?.id}`}>
+      <Link href={`/product/${product?._id}`}>
         <img
-          src={"/api/image?url=" + product?.image.split("+")[0]}
+          src={`/api/products/image?productid=${product?._id}&imageid=${product.images[0]._id}`}
           alt="mrsk"
           className="h-72 w-full object-cover"
         />

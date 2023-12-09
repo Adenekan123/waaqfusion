@@ -10,8 +10,8 @@ import { useSession } from "next-auth/react";
 import { useCartContext } from "@/contexts";
 
 export const ProductCard = ({
-  id,
-  image,
+  _id,
+  images,
   name,
   tag,
   price,
@@ -22,18 +22,21 @@ export const ProductCard = ({
 
   const { curr, prev, discount } = price;
 
-  const itemInCart = (productid: number) => {
-    return state.products.some((cart) => cart.productid === productid);
+  const itemInCart = (productid: string) => {
+    return state.products.find(
+      (cart) => (cart.product._id as string) === productid
+    );
   };
 
+  const itemincart = itemInCart(_id);
   return (
     <div
-      id={`${name.replaceAll(" ", "")}${id}`}
+      id={`${name.replaceAll(" ", "")}${_id}`}
       className="relative  border border-orange-100 rounded-3xl overflow-hidden bg-orange-50 h-full"
     >
-      <Link href={`/product/${id}`}>
+      <Link href={`/product/${_id}`}>
         <img
-          src={"/api/image?url=" + image.split("+")[0]}
+          src={`/api/products/image?productid=${_id}&imageid=${images[0]._id}`}
           alt="mrsk"
           className="h-72 w-full object-cover"
         />
@@ -53,14 +56,17 @@ export const ProductCard = ({
           </div>
         </div>
         {session?.user ? (
-          <div className="flex gap-3 items-center leading-none">
-            <Body type={1} title={`${curr}`} styles="font-bold" hasEntity />
-            <Body
-              title={`${prev}`}
-              type={0.5}
-              hasEntity
-              styles="text-slate-700 relative before:absolute before:top-2/4 before:-translate-y-3/4 before:block before:w-full before:h-px before:bg-slate-700 "
-            />
+          <div className="flex gap-3 items-center justify-between leading-none">
+            <div className="flex gap-3 items-center">
+              <Body type={1} title={`${curr}`} styles="font-bold" hasEntity />
+              <Body
+                title={`${prev}`}
+                type={0.5}
+                hasEntity
+                styles="text-slate-700 relative before:absolute before:top-2/4 before:-translate-y-3/4 before:block before:w-full before:h-px before:bg-slate-700 "
+              />
+            </div>
+
             <Body title={`${discount}% off`} type={0.5} styles="text-red-500" />
           </div>
         ) : (
@@ -68,14 +74,26 @@ export const ProductCard = ({
         )}
 
         <CustomButton
-          title="Add to cart"
+          title={itemincart? `Add to cart (${itemincart.quantity})` : 'Add to cart'}
           styles="w-full font-bold shadow-lg"
           gradient={
-            itemInCart(id as number)
+            itemincart
               ? "from-green-400 to-green-600"
               : "from-red-500 to-orange-500"
           }
-          whenClicked={() => addtocart({id,image,name,tag,price,ratings} as IProductCard)}
+          whenClicked={() => {
+            addtocart(
+              {
+                _id,
+                images,
+                name,
+                tag,
+                price,
+                ratings,
+              } as IProductCard,
+              itemincart ? itemincart?.quantity + 1 : undefined
+            );
+          }}
         />
       </div>
     </div>

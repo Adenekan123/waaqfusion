@@ -14,7 +14,7 @@ export interface IUseCart {
 const productToCart = (product: IProductCard, cartid: number) => {
   return {
     id: cartid,
-    productid: product.id,
+    productid: product._id,
     quantity: 1,
     product: product,
   } as ICartItem;
@@ -25,10 +25,10 @@ const addtocart_local = (product: IProductCard) => {
   ) as ICartItem[];
 
   if (carts) {
-    const cartExist = carts.some((cart) => cart?.productid === product?.id);
+    const cartExist = carts.some((cart) => cart?.productid === product?._id);
     if (cartExist) {
       const newcarts = carts.map((cart) =>
-        cart.productid === product.id
+        cart.productid === product._id
           ? { ...cart, quantity: cart.quantity + 1 }
           : cart
       );
@@ -79,7 +79,7 @@ const addtocart_async = async (product: IProductCard, quantity?: number) => {
   return await (
     await fetch("/api/cart", {
       method: "POST",
-      body: JSON.stringify({ productid: product.id, quantity }),
+      body: JSON.stringify({ productid: product._id, quantity: !quantity ? 1: quantity }),
     })
   ).json();
 };
@@ -95,7 +95,7 @@ const getcarts_async = async () => await (await fetch(`/api/cart`)).json();
 
 export const useCart = (type: "online" | "offline") => {
   const [state, dispatch] = useReducer(cartReducer, cart_initial_state);
-
+console.log(state)
   const addtocart = async (product: IProductCard, quantity?: number) => {
     dispatch({ type: "addingToCart_pending" });
     try {
@@ -135,9 +135,11 @@ export const useCart = (type: "online" | "offline") => {
   };
 
   const getAllcarts = async () => {
+    
     dispatch({ type: "carts_pending" });
     try {
       const carts = type === "offline" ? getcarts_local() : await getcarts_async();
+      console.log(carts, "=================")
       if (carts && Array.isArray(carts))
         dispatch({ type: "carts_successful", payload: carts });
       else throw new Error("Unable to fetch carts");
@@ -158,7 +160,7 @@ export const useCart = (type: "online" | "offline") => {
 
   useEffect(() => {
     getAllcarts();
-  }, []);
+  }, [type]);
 
   useEffect(() => {
     set_total_carts();
