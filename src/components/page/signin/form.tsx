@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Body, CustomButton, Heading } from "@/components/ui";
 import { useForm } from "@/hooks";
@@ -6,17 +6,17 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
+import { CgClose } from "react-icons/cg";
 import { toast } from "react-toastify";
 const initialState = {
   email: "",
   password: "",
 };
-export const SignInForm = () => {
+export const SignInForm = ({ close }: { close?: any }) => {
   const [loading, setLoading] = React.useState(false);
   const searchParams = useSearchParams();
   const { state, update } = useForm(initialState);
-  const pathname = usePathname()
-
+  const pathname = usePathname();
 
   const signInWithCredentials = async (e: any) => {
     e.preventDefault();
@@ -42,7 +42,20 @@ export const SignInForm = () => {
     }
   }, [searchParams]);
   return (
-    <div className="p-8 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 absolute top-24 -left-3 w-96  before:w-6 before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path">
+    <div
+      className={`p-8 ${
+        close ? "pt-32" : ""
+      } z-50 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 md:w-96  md:before:w-6 md:before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path md:absolute md:top-24 md:-left-3 fixed top-0 left-0 w-full h-full md:h-auto `}
+    >
+      {/* close menu */}
+      {close ? (
+        <div
+          className="absolute top-5 right-4 rounded-full w-12 h-12 bg-white shadow-lg flex justify-center items-center"
+          onClick={()=>close ? close() : false}
+        >
+          <CgClose size={18} />
+        </div>
+      ) : null}
       <div className="flex flex-col gap-8">
         <div>
           <Heading

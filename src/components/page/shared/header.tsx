@@ -13,16 +13,19 @@ import { Navigation } from "./navigation";
 import { IoClose } from "react-icons/io5";
 import { BsCaretDownFill } from "react-icons/bs";
 import { SignInForm } from "../signin";
-import {useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { ProfileDropdown } from "../profile";
-import {useCartContext } from "@/contexts";
+import { useCartContext } from "@/contexts";
 import { Cart } from "./cart";
+import { UserGateway } from "./user-gateway";
 
 const MobileMenu = () => {
   const [state, setState] = useState(false);
+  const [showSignin, setShowSignin] = useState(false);
+
   return (
-    <Container styles="block lg:hidden z-10 bg-transparent absolute top-0 left-0 w-full">
+    <Container styles="block lg:hidden z-50 bg-transparent absolute top-0 left-0 w-full">
       <nav className="flex items-center justify-between py-3 ">
         <Link href={"#"} className="logo text-3xl">
           <Image
@@ -55,6 +58,7 @@ const MobileMenu = () => {
               close={() => setState(false)}
             />
           ))}
+          <UserGateway signin={showSignin} togglesignin={setShowSignin} mobile />
         </Stack>
       </div>
     </Container>
@@ -62,7 +66,6 @@ const MobileMenu = () => {
 };
 
 const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
-  const { data: session } = useSession();
   const { state } = useCartContext();
   const [dropdown, setDropdown] = useState({ shop: false, solutions: false });
   const [showSignin, setShowSignin] = useState(false);
@@ -73,7 +76,7 @@ const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
   }, [params]);
 
   return (
-    <div className="w-full py-4 z-10 text-white font-bold hidden lg:block absolute top-0 left-0">
+    <div className="w-full py-4 text-white font-bold hidden lg:block absolute top-0 left-0 z-50">
       <Container>
         <div className="flex justify-between items-center">
           <nav className="flex items-center gap-16">
@@ -243,18 +246,8 @@ const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
                 </div>
               ) : null}
             </button>
-            {session?.user ? (
-              <ProfileDropdown />
-            ) : (
-              <>
-                {" "}
-                <CustomButton
-                  whenClicked={() => setShowSignin((prev) => !prev)}
-                  title="Sign In"
-                />
-                {showSignin ? <SignInForm /> : null}
-              </>
-            )}
+
+            <UserGateway signin={showSignin} togglesignin={setShowSignin} />
           </nav>
         </div>
       </Container>
@@ -263,11 +256,12 @@ const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
 };
 
 export const Header = () => {
-  const {state,togglecart} = useCartContext()
+  const { state, togglecart } = useCartContext();
+
   return (
     <>
       <DesktopMenu toggleCart={togglecart} />
-      <MobileMenu  />
+      <MobileMenu />
       <Drawer open={state.visible}>
         <Cart close={togglecart} />
       </Drawer>

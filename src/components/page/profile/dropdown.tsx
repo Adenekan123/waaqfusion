@@ -23,7 +23,7 @@ export const ProfileDropdown = () => {
         <BsCaretDownFill size={16} />
       </button>
       {hide ? null : (
-        <div className="pt-6 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 absolute top-24 left-4 before:w-6 before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path">
+        <div className="pt-6 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 relative md:absolute top-3 md:top-24 md:left-4 before:w-6 before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path">
           <div className="flex flex-col">
             {/* <Link
               href={"/profile"}
