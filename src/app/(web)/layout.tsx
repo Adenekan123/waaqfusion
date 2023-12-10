@@ -1,5 +1,5 @@
 "use client";
-import { Footer, Header } from "@/components";
+import { FloatingCartButton, Footer, Header } from "@/components";
 import { CartProvider } from "@/contexts/cartProvider";
 import { SessionProvider } from "next-auth/react";
 import React, { ReactNode } from "react";
@@ -9,13 +9,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <>
       <SessionProvider>
         <CartProvider>
-          
           <Header />
           {children}
+          <FloatingCartButton />
         </CartProvider>
       </SessionProvider>
       <Footer />
-
     </>
   );
 };

@@ -95,7 +95,6 @@ const getcarts_async = async () => await (await fetch(`/api/cart`)).json();
 
 export const useCart = (type: "online" | "offline") => {
   const [state, dispatch] = useReducer(cartReducer, cart_initial_state);
-console.log(state)
   const addtocart = async (product: IProductCard, quantity?: number) => {
     dispatch({ type: "addingToCart_pending" });
     try {
@@ -139,7 +138,6 @@ console.log(state)
     dispatch({ type: "carts_pending" });
     try {
       const carts = type === "offline" ? getcarts_local() : await getcarts_async();
-      console.log(carts, "=================")
       if (carts && Array.isArray(carts))
         dispatch({ type: "carts_successful", payload: carts });
       else throw new Error("Unable to fetch carts");
