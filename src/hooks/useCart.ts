@@ -57,9 +57,9 @@ const removefromcart_local = (cartid: number) => {
   const carts = JSON.parse(
     localStorage.getItem(process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string) as string
   ) as ICartItem[];
-  const cartExist = carts.some((cart) => cart.id === cartid);
+  const cartExist = carts.some((cart) => cart.productid === cartid);
   if (cartExist) {
-    const newcarts = carts.filter((cart) => cart.id !== cartid);
+    const newcarts = carts.filter((cart) => cart.productid !== cartid);
     localStorage.setItem(
       process.env.NEXT_PUBLIC_LOCAL_CART_KEY as string,
       JSON.stringify(newcarts)
