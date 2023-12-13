@@ -17,7 +17,7 @@ import { ProductHero } from "./product-hero";
 export const ProductDetail = ({ productid }: { productid?: string }) => {
   const { data, isLoading } = useFetch(`/api/products/${productid}`);
 
-  const [images, setImages] = useState<{ contentType: string; _id: string }[]>(
+  const [images, setImages] = useState<string[]>(
     []
   );
 
@@ -70,7 +70,6 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
             ) : (
               <Splide
                 ref={mainRef}
-                onMoved={(e) => console.log(mainRef)}
                 aria-label="My Favorite Image"
                 options={{
                   rewind: false,
@@ -89,7 +88,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
               >
                 {images.length &&
                   images.map((image, index: number) => (
-                    <SplideSlide key={nanoid(5)}>
+                    <SplideSlide key={`image-${index}`}>
                       <div
                         className={`border p-3 ${
                           currentIndex === index
@@ -130,7 +129,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   </div>
                 ) : (
                   <img
-                    src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${data.images[0]}`}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${data.images[currentIndex]}`}
                     alt="product thumbnail"
                     width={"100%"}
                     height={"100%"}
@@ -169,7 +168,6 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   </div>
                 ) : (
                   <>
-                    {data?.price ? <ProductPrice price={data.price} /> : null}
                     <Body title="Avishkaar's Flagship Robotics Solution for Schools" />
                     <CustomButton
                       title="Buy Now"

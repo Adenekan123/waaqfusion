@@ -69,6 +69,28 @@ background-color: #fffcfa;
   }
 }
 
+.swiper-button-next{
+  background-color: red;
+  padding:2rem;
+  color:#fff;
+  border-radius: 50%;
+}
+.swiper-button-next::after{
+  color:#fff;
+  font-size: larger!important;
+  font-weight: bold;
+
+}
+
+button.react-multiple-carousel__arrow {
+  background: rgba(255, 94, 0, 0.8)!important;
+}
+button.react-multiple-carousel__arrow:hover {
+  background: rgba(255, 81, 0, 0.8)!important;
+}
+.react-multiple-carousel__arrow--right {
+  right: calc(4% + 1px);
+}
 /* .splide__slide {
   min-height: max-content;
 
