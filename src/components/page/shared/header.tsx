@@ -25,7 +25,7 @@ const MobileMenu = () => {
   const [showSignin, setShowSignin] = useState(false);
 
   return (
-    <Container styles="block lg:hidden z-50 bg-transparent absolute top-0 left-0 w-full">
+    <Container styles="block lg:hidden z-[2000] bg-transparent absolute top-0 left-0 w-full">
       <nav className="flex items-center justify-between py-3 ">
         <Link href={"#"} className="logo text-3xl">
           <Image
@@ -76,7 +76,7 @@ const DesktopMenu = ({ toggleCart }: { toggleCart: (v?: boolean) => any }) => {
   }, [params]);
 
   return (
-    <div className="w-full py-4 text-white font-bold hidden lg:block absolute top-0 left-0 z-50">
+    <div className="w-full py-4 text-white font-bold hidden lg:block absolute top-0 left-0 z-[200]">
       <Container>
         <div className="flex justify-between items-center">
           <nav className="flex items-center gap-16">

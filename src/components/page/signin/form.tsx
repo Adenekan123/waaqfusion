@@ -45,7 +45,7 @@ export const SignInForm = ({ close }: { close?: any }) => {
     <div
       className={`p-8 ${
         close ? "pt-32" : ""
-      } z-50 rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 md:w-96  md:before:w-6 md:before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path md:absolute md:top-24 md:-left-3 fixed top-0 left-0 w-full h-full md:h-auto `}
+      } z-[1500] rounded-md shadow-2xl shadow-orange-500 text-black bg-orange-50 md:w-96  md:before:w-6 md:before:h-4 before:bg-orange-100 before:absolute before:z-10 triangle-clip-path md:absolute md:top-24 md:-left-3 fixed top-0 left-0 w-full h-full md:h-auto `}
     >
       {/* close menu */}
       {close ? (
