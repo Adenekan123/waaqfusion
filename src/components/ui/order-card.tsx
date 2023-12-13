@@ -19,7 +19,7 @@ export const OrderCard = ({orderItem}:{orderItem:IOrderItem}) => {
     >
       <Link href={`/product/${product?._id}`}>
         <img
-          src={`/api/products/image?productid=${product?._id}&imageid=${product.images[0]._id}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${product.images[0]}`}
           alt="mrsk"
           className="h-72 w-full object-cover"
         />

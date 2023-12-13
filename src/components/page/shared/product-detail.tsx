@@ -99,7 +99,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                       >
                         <button onClick={() => handleThumbs(index)}>
                           <img
-                            src={`/api/products/image?productid=${productid}&imageid=${image._id}`}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${image}`}
                             width={"100%"}
                             height={"100%"}
                             alt="robotics_classroom_gadgets"
@@ -130,7 +130,7 @@ export const ProductDetail = ({ productid }: { productid?: string }) => {
                   </div>
                 ) : (
                   <img
-                    src={`/api/products/image?productid=${productid}&imageid=${data.images[0]._id}`}
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${data.images[0]}`}
                     alt="product thumbnail"
                     width={"100%"}
                     height={"100%"}

@@ -36,7 +36,7 @@ export const ProductCard = ({
     >
       <Link href={`/product/${_id}`}>
         <img
-          src={`/api/products/image?productid=${_id}&imageid=${images[0]._id}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${images[0]}`}
           alt="mrsk"
           className="h-72 w-full object-cover"
         />

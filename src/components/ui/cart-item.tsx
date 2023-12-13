@@ -15,7 +15,7 @@ const CartItem = (item: ICartItem) => {
     <div className="flex gap-6 bg-orange-100 p-3 rounded-md">
       <div className="product-image border rounded-lg h-32 w-32">
         <img
-          src={`/api/products/image?productid=${product._id}&imageid=${product.images[0]._id}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_HOST}/${product.images[0]}`}
           width={"100%"}
           height={"100%"}
           alt={product?.name}
