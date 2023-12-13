@@ -84,6 +84,7 @@ background-color: #fffcfa;
 
 button.react-multiple-carousel__arrow {
   background: rgba(255, 94, 0, 0.8)!important;
+  z-index: 10!important;
 }
 button.react-multiple-carousel__arrow:hover {
   background: rgba(255, 81, 0, 0.8)!important;

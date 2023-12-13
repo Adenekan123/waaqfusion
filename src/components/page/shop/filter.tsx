@@ -41,7 +41,7 @@ export const Filter = ({
       }));
   };
   return (
-    <Container styles="bg-white shadow-lg p-6 md:shadow-inherit sticky top-0 z-10">
+    <Container styles="bg-white shadow-lg p-6 md:shadow-inherit sticky top-0 z-[1500]">
       <div className="flex justify-between items-center">
         <div className="flex gap-4">
           <div>
@@ -184,7 +184,7 @@ export const Filter = ({
                   styles="shadow-lg bg-red-100"
                   whenClicked={() => setShow(false)}
                 />
-                <CustomButton title="Apply Filter" whenClicked={()=>applyFilter()} styles="shadow-lg" />
+                <CustomButton title="Apply Filter" whenClicked={()=>{applyFilter(); setShow(false)}} styles="shadow-lg" />
               </div>
             </div>
           ) : null}
